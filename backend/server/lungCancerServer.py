@@ -35,14 +35,14 @@ def lungCancerPredict():
         
         prediction = lung_cancer_mlp.predict(input_array.reshape(1, -1))
 
-        res = {
+        results = {
             "disease": "lung cancer",
             "model": "mlp",
             "modelname": "lung_cancer_mlp",
             "result": prediction.tolist()
         }
 
-        return jsonify(res)
+        return jsonify(results)
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
