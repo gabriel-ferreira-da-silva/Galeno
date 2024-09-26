@@ -55,6 +55,8 @@ from sklearn.model_selection import GridSearchCV
 x = df.drop('LUNG_CANCER', axis=1)
 y = df['LUNG_CANCER']
 
+x = x[sorted(df.columns)]
+
 trainX, testX, trainY, testY = train_test_split(x, y, test_size = 0.2,random_state=42)
 
 sc=StandardScaler()
@@ -63,9 +65,7 @@ scaler = sc.fit(trainX)
 trainX_scaled = scaler.transform(trainX)
 testX_scaled = scaler.transform(testX)
 
-mlp_clf = MLPClassifier(hidden_layer_sizes=(5,2),
-                        max_iter = 300,activation = 'relu',
-                        solver = 'adam')
+mlp_clf = MLPClassifier(hidden_layer_sizes=(5,2), max_iter = 300,activation = 'relu', solver = 'adam')
 
 mlp_clf.fit(trainX_scaled, trainY)
 
