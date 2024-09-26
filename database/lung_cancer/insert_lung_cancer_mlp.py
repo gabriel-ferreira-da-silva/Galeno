@@ -1,12 +1,10 @@
 import pickle
-
-with open('lung-cancer-mlp.pkl', 'rb') as f:
-    model_binary = f.read()
-
-
 import pymongo
 from bson.binary import Binary
 from datetime import datetime
+
+with open('/home/gabriel/Desktop/projetos2024/galeno/MLMODELS/lung-cancer/lung-cancer-mlp.pkl', 'rb') as f:
+    model_binary = f.read()
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client['galeno_database']
