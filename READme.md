@@ -4,6 +4,8 @@ Backend API services to provide predictions for diseases diagnosis using machine
 
 Galeno provides predictions based on ml models and data in MLMODELS directory. The models can be trained, updated and stored in mongo database and the system is run with python flask
 
+![](https://github.com/gabriel-ferreira-da-silva/Galeno/blob/main/doc/img/Untitled(3).png?raw=true)
+
 
 ## stack
 
