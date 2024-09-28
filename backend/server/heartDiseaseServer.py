@@ -11,7 +11,7 @@ heart_failure_model_blueprint = Blueprint('heartFailureModel_blueprint', __name_
 
 
 @heart_failure_model_blueprint.route(base_url + "/predict/mlp", methods=['POST'])
-def heart_failure_predict():
+def heart_failure_predict_mlp():
     try:
         data = request.get_json()
         
@@ -19,6 +19,37 @@ def heart_failure_predict():
             return hf.request_error()
         
         results = hf.mlp_get_results(data)
+        
+        return jsonify(results)
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+
+@heart_failure_model_blueprint.route(base_url + "/predict/kmean", methods=['POST'])
+def heart_failure_predict_kmean():
+    try:
+        data = request.get_json()
+        
+        if hf.request_is_valid(data) == False:
+            return hf.request_error()
+        
+        results = hf.kmean_get_results(data)
+        
+        return jsonify(results)
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@heart_failure_model_blueprint.route(base_url + "/predict/kmedoid", methods=['POST'])
+def heart_failure_predict_kmedoid():
+    try:
+        data = request.get_json()
+        
+        if hf.request_is_valid(data) == False:
+            return hf.request_error()
+        
+        results = hf.kmedoid_get_results(data)
         
         return jsonify(results)
     
