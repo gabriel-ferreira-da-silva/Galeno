@@ -4,14 +4,14 @@ from utils.database_utils import *
 from utils.commom_utils import *
 
 
-class heart_failure_mlp(basemodel):
-    
+class heart_failure_kmean(basemodel):
+
     def __init__(self):
         super().__init__()
-        self.name = "heart-failure-mlp"
+        self.name = "heart-failure-kmean"
 
     def load(self):
-        heart_failure_mlp = load_model("heart-failure-mlp")
+        heart_failure_mlp = load_model("heart-failure-kmean")
         return heart_failure_mlp
     
     def predict(self,input):
@@ -23,8 +23,8 @@ class heart_failure_mlp(basemodel):
     def format_results(self, prediction):
         results = {
                 "disease": "heart failure",
-                "model": "mlp",
-                "modelname": "heart_failure_mlp",
+                "model": "kmean",
+                "modelname": "heart_failure_kmean",
                 "result": prediction.tolist()
             }
         return results
