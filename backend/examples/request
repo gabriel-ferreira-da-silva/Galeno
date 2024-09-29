@@ -1,0 +1,14 @@
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
+  http://localhost:5000/api/heartfailure/predict/mlp
+  
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
+  http://localhost:5000/api/heartfailure/predict/kmean
+  
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
+  http://localhost:5000/api/heartfailure/predict/kmedoid
