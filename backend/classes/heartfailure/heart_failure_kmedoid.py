@@ -19,8 +19,3 @@ class heart_failure_kmedoid(basemodel):
             }
         return results
     
-    def get_results(self, data):
-        input = data['input_array']
-        prediction = self.predict(input)
-        results = self.format_results(prediction)
-        return results

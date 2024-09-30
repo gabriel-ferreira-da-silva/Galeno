@@ -9,16 +9,6 @@ class heart_failure_kmean(basemodel):
     def __init__(self):
         super().__init__()
         self.name = "heart-failure-kmean"
-
-    def load(self):
-        heart_failure_mlp = load_model("heart-failure-kmean")
-        return heart_failure_mlp
-    
-    def predict(self,input):
-        input_array = np.array(input)
-        heart_failure_mlp = self.load()
-        prediction = heart_failure_mlp.predict(input_array.reshape(1, -1))
-        return prediction
     
     def format_results(self, prediction):
         results = {

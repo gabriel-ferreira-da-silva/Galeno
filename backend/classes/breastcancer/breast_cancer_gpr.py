@@ -4,17 +4,17 @@ from utils.database_utils import *
 from utils.commom_utils import *
 
 
-class heart_failure_mlp(basemodel):
+class breast_cancer_gpr(basemodel):
     
     def __init__(self):
         super().__init__()
-        self.name = "heart-failure-mlp"
+        self.name = "breast_cancer_gpr"
     
     def format_results(self, prediction):
         results = {
-                "disease": "heart failure",
-                "model": "mlp",
-                "modelname": "heart_failure_mlp",
+                "disease": "breast cancer",
+                "model": "gpr",
+                "modelname": "breast-cancer-gpr",
                 "result": prediction.tolist()
             }
         return results
