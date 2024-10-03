@@ -79,3 +79,6 @@ import pickle
 
 with open('lung-cancer-mlp.pkl', 'wb') as file:
     pickle.dump(mlp_clf, file)
+
+with open('lung-cancer-scaler.pkl', 'wb') as file:
+    pickle.dump( scaler, file)
