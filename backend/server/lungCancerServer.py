@@ -1,35 +1,33 @@
 import numpy as np
-from utils.lung_cancer_utils import *
 from bson.binary import Binary
 from datetime import datetime
 from flask import Blueprint, jsonify, request
+from classes.lungcancer.lung_cancer_mlp import lung_cancer_mlp
 
 
 base_url = "lungcancer"
 lungCancerModel_blueprint = Blueprint('lungCancerModel_blueprint', __name__)
 
+def request_is_valid(data):
+    if not data or 'input_array' not in data  or len(data['input_array']) != 15:
+        return False
+    return True
 
-@lungCancerModel_blueprint.route(base_url + "/predict", methods=['POST'])
+def request_error():
+    return jsonify({'error': 'Invalid input. Provide an array of 11 numbers.'}), 400
+
+
+@lungCancerModel_blueprint.route(base_url + "/predict/mlp", methods=['POST'])
 def lungCancerPredict():
     try:
         data = request.get_json()
         
-        if not data or 'input_array' not in data or len(data['input_array']) != 15:
-            return jsonify({'error': 'Invalid input. Provide an array of 15 numbers.'}), 400
-
-        input_array = np.array(data['input_array'])
+        if request_is_valid(data) == False:
+            return request_error()
         
-        lung_cancer_mlp = load_lung_cancer_mlp()
+        lc_mlp = lung_cancer_mlp()
+        results = lc_mlp.get_results(data)
         
-        prediction = lung_cancer_mlp.predict(input_array.reshape(1, -1))
-
-        results = {
-            "disease": "lung cancer",
-            "model": "mlp",
-            "modelname": "lung_cancer_mlp",
-            "result": prediction.tolist()
-        }
-
         return jsonify(results)
     
     except Exception as e:

@@ -9,7 +9,7 @@ class basemodel():
 
     @abstractmethod
     def get_header(self):
-        pass
+            pass
     
     @abstractmethod
     def load(self):
@@ -23,7 +23,6 @@ class basemodel():
         prediction = model.predict(input_array.reshape(1, -1))
         return prediction
     
-
     @abstractmethod
     def format_results(self):
         pass

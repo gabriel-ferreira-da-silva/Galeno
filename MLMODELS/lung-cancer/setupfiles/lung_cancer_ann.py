@@ -20,14 +20,6 @@ import matplotlib.pyplot as plt
 df['GENDER'] = df['GENDER'].map({'M': 1, 'F': 0})
 df['LUNG_CANCER'] = df['LUNG_CANCER'].map({'YES': 1, 'NO': 0})
 
-correlation= df.corr()
-plt.figure(figsize=(10, 8))
-
-sns.heatmap(correlation, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
-
-plt.title('Correlation Heatmap')
-plt.show()
-
 nc_df = df[df['LUNG_CANCER'] == 0]
 
 num_no_cancer= (df['LUNG_CANCER']==0).sum()

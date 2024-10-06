@@ -18,3 +18,4 @@ def load_model(model_name):
     model_binary = model_document['model']
     neural_network = pickle.loads(model_binary)
     return neural_network
+    
