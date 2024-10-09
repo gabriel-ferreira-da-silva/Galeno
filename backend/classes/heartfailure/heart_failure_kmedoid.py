@@ -9,6 +9,7 @@ class heart_failure_kmedoid(basemodel):
     def __init__(self):
         super().__init__()
         self.name = "heart-failure-kmedoid"
+        self.load()
 
     def format_results(self, prediction):
         results = {

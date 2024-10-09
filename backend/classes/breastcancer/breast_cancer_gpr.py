@@ -9,7 +9,7 @@ class breast_cancer_gpr(basemodel):
     def __init__(self):
         super().__init__()
         self.name = "breast_cancer_gpr"
-    
+        self.load()
     def format_results(self, prediction):
         results = {
                 "disease": "breast cancer",

@@ -9,12 +9,5 @@ class heart_failure_mlp(basemodel):
     def __init__(self):
         super().__init__()
         self.name = "heart-failure-mlp"
+        self.load()
     
-    def format_results(self, prediction):
-        results = {
-                "disease": "heart failure",
-                "model": "mlp",
-                "modelname": "heart_failure_mlp",
-                "result": prediction.tolist()
-            }
-        return results

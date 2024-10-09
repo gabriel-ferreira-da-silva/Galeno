@@ -31,6 +31,8 @@ heart_failure_mlp_document = {
     "input_description": ["Age","ChestPainType", "Cholesterol", "ExerciseAngina", "FastingBS",  "MaxHR", "Oldpeak","RestingBP",	"RestingECG", "Sex","ST_Slope"],
     "output_description": "0 = negative to heart failure, 1 = positive to heart failure",
     "model": Binary(heart_failure_mlp_binary),
+    "scaler": Binary(heart_failure_scaler_binary)
+
     
 }
 

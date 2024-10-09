@@ -9,6 +9,7 @@ class lung_cancer_mlp(basemodel):
     def __init__(self):
         super().__init__()
         self.name = "lung-cancer-mlp"
+        self.load()
     
     def format_results(self, prediction):
         results = {

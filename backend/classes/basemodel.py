@@ -6,30 +6,68 @@ class basemodel():
 
     def __init__(self):
         self.name = ""
+        self.name = ""
+        self.disease = ""
+        self.type = ""
+        self.last_update = ""
+        self.input_description = []
+        self.output_description = ""
+        self.model =  None 
+        self.scaler =  None
 
     @abstractmethod
     def get_header(self):
-            pass
-    
+        header = {
+                "modelname": self.name,
+                "disease": self.disease,
+                "model": self.type,
+                "last_update":self.last_update,
+                "input_description":self.input_description,
+                "output_description":self.output_description,
+            }
+        return header
+             
     @abstractmethod
     def load(self):
-        model = load_model(self.name)
-        return model
+        model_object = get_model_object(self.name)
+        self.name = model_object['name']
+        self.disease = model_object['disease']
+        self.type = model_object['disease']
+        self.last_update = model_object['last_update']
+        self.input_description = model_object['input_description']
+        self.output_description = model_object['output_description']
+        self.model =  model_object['model']
+        self.scaler =  model_object['scaler']
     
     @abstractmethod
     def predict(self,input):
         input_array = np.array(input)
-        model = self.load()
-        prediction = model.predict(input_array.reshape(1, -1))
+        prediction = self.model.predict(input_array.reshape(1, -1))
         return prediction
     
     @abstractmethod
-    def format_results(self):
-        pass
+    def format_results(self, prediction):
+        results = {
+                "disease": self.disease,
+                "model": self.type,
+                "modelname": self.name,
+                "result": prediction.tolist()
+            }
+        return results
+ 
+    @abstractmethod
+    def get_formated_input(self, data):
+        input_array = data['input_array']
+        input_array = np.array(input_array)
+        input_array = input_array.reshape(1,-1)
+        input = self.scaler.transform(input_array)
+        return input
+    
 
     @abstractmethod
     def get_results(self, data):
-        input = data['input_array']
+        
+        input = self.get_formated_input(data)
         prediction = self.predict(input)
         results = self.format_results(prediction)
         return results
