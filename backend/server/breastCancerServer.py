@@ -32,3 +32,26 @@ def heart_failure_predict_mlp():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
+@breast_cancer_model_blueprint.route(base_url + "/train/gpr", methods=['POST'])
+def train_breast_cancer_mlp():
+    try:
+        data = request.get_json()
+        
+        if not data or 'training_data' not in data:
+            return jsonify({'error': 'Invalid input. Provide training data.'}), 400
+
+        lc_mlp = breast_cancer_gpr()
+        lc_mlp.train(data)
+        return jsonify({'message': 'Model trained successfully.'}), 200
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+@breast_cancer_model_blueprint.route(base_url + "/info/gpr", methods=['GET'])
+def get_breast_cancer_info():
+    try:
+        lc_mlp = breast_cancer_gpr()
+        return jsonify(lc_mlp.get_header()), 200
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

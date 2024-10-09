@@ -60,3 +60,30 @@ def heart_failure_predict_kmedoid():
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+@heart_failure_model_blueprint.route(base_url + "/train/mlp", methods=['POST'])
+def train_heart_failure_mlp():
+    try:
+        data = request.get_json()
+        
+        if not data or 'training_data' not in data:
+            return jsonify({'error': 'Invalid input. Provide training data.'}), 400
+
+        lc_mlp = heart_failure_mlp()
+        lc_mlp.train(data)
+        return jsonify({'message': 'Model trained successfully.'}), 200
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@heart_failure_model_blueprint.route(base_url + "/info/mlp", methods=['GET'])
+@heart_failure_model_blueprint.route(base_url + "/info/kmean", methods=['GET'])
+@heart_failure_model_blueprint.route(base_url + "/info/kmedoid", methods=['GET'])
+def get_heart_failure_mlp_info():
+    try:
+        lc_mlp = heart_failure_mlp()
+        return jsonify(lc_mlp.get_header()), 200
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
