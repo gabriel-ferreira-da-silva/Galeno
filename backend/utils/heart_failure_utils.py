@@ -1,4 +1,3 @@
-import numpy as np
 from .database_utils import *
 from .commom_utils import *
 from flask import jsonify

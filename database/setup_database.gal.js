@@ -1,5 +1,4 @@
-use galeno_database
-
+use('galeno_database')
 
 db.createCollection("models", {
   validator: {
@@ -24,7 +23,7 @@ db.createCollection("models", {
           description: "The date when the model was last updated"
         },
         input_description: {
-          bsonType: "string",
+          bsonType: "array",
           description: "Description of the model's input"
         },
         output_description: {
@@ -34,9 +33,14 @@ db.createCollection("models", {
         model: {
           bsonType: "binData",
           description: "The actual machine learning model serialized as binary data"
+        },
+        scaler: {
+          bsonType: "binData",
+          description: "scaler for inputs"
         }
       }
     }
   }
 })
 
+db.models.createIndex({ name: 1 }, { unique: true });

@@ -1,9 +1,6 @@
-import numpy as np
 import utils.heart_failure_utils as hf
 from utils.commom_utils import *
 from utils.database_utils import *
-from bson.binary import Binary
-from datetime import datetime
 from flask import Blueprint, jsonify, request
 from classes.heartfailure.heart_failure_mlp import heart_failure_mlp
 from classes.heartfailure.heart_failure_kmean import heart_failure_kmean
