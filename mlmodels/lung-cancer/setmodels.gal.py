@@ -21,7 +21,7 @@ lung_cancer_mlp_document = {
     "disease": "heart failure",
     "type": "mlp",
     "last_update": datetime.now(),
-    "input_description": ["ALLERGY", 	"WHEEZING",	"ALCOHOL CONSUMING",	"COUGHING","SHORTNESS OF BREATH",	"SWALLOWING DIFFICULTY", "CHEST PAIN"],
+    "input_description": ["ALLERGY", 	"WHEEZING",	"ALCOHOL CONSUMING",	"COUGHING","SHORTNESS OF BREATH",	"SWALLOWING DIFFICULTY", "CHEST PAIN","GENDER", "AGE",	"SMOKING",	"YELLOW_FINGERS",	"ANXIETY", "PEER_PRESSURE","CHRONIC DISEASE",	"FATIGUE"],
     "output_description": "0 = negative to lung cancer, 1 = positive to lung cancer",
     "model": Binary(lung_cancer_mlp_binary),
     "scaler": Binary(lung_cancer_scaler_binary)

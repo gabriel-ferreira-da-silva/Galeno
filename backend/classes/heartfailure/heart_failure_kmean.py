@@ -10,18 +10,3 @@ class heart_failure_kmean(basemodel):
         super().__init__()
         self.name = "heart-failure-kmean"
         self.load()
-    
-    def format_results(self, prediction):
-        results = {
-                "disease": "heart failure",
-                "model": "kmean",
-                "modelname": "heart_failure_kmean",
-                "result": prediction.tolist()
-            }
-        return results
-    
-    def get_results(self, data):
-        input = data['input_array']
-        prediction = self.predict(input)
-        results = self.format_results(prediction)
-        return results

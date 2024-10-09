@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from utils.database_utils import *
 import numpy as np
+from bson.binary import Binary
+from datetime import datetime
 
 class basemodel():
 
@@ -58,10 +60,16 @@ class basemodel():
     @abstractmethod
     def get_formated_input(self, data):
         input_array = data['input_array']
-        input_array = np.array(input_array)
+        input = self.scale_input(input_array)
+        return input
+    
+    @abstractmethod
+    def scale_input(self, input):
+        input_array = np.array(input)
         input_array = input_array.reshape(1,-1)
         input = self.scaler.transform(input_array)
         return input
+
     
 
     @abstractmethod
@@ -71,3 +79,32 @@ class basemodel():
         prediction = self.predict(input)
         results = self.format_results(prediction)
         return results
+        
+
+    @abstractmethod
+    def train(self, data):
+        training_data = data['training_data']
+        
+        X = []
+        y = []
+
+        for arr in training_data:
+            X_features = arr[:-1]  
+            label = arr[-1]  
+
+            X_scaled = self.scale_input(X_features)
+
+            X.append(X_scaled)
+            y.append(label)
+
+        X = np.array(X).reshape(len(X), -1)  
+        y = np.array(y)
+
+        self.model.fit(X, y)
+
+        models_collection = load_models()
+        model_binary = pickle.dumps(self.model)
+        models_collection.update_one(
+            {"name": self.name},
+            {"$set": {"model": Binary(model_binary), "last_update": datetime.now()}}
+        )

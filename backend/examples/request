@@ -19,7 +19,15 @@ curl --header "Content-Type: application/json" \
   http://localhost:5000/api/lungcancer/predict/mlp
 
 
+
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
   http://localhost:5000/api/breastcancer/predict/gpr
+
+
+
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"training_data": [[1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,1]]}' \
+  http://localhost:5000/api/lungcancer/train/mlp
