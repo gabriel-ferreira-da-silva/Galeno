@@ -10,6 +10,10 @@ db.createCollection("models", {
           bsonType: "string",
           description: "The name of the machine learning model"
         },
+        description: {
+          bsonType: "string",
+          description: "The name of the machine learning model"
+        },
         disease: {
           bsonType: "string",
           description: "The disease that the model predicts"

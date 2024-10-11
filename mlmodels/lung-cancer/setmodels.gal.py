@@ -18,10 +18,27 @@ with open('lung-cancer-scaler.pkl', 'rb') as f:
 
 lung_cancer_mlp_document = {
     "name": "lung-cancer-mlp",
+    "description":"age is in years and the others input are 1 for no and 2 for yes",
     "disease": "heart failure",
     "type": "mlp",
     "last_update": datetime.now(),
-    "input_description": ["ALLERGY", 	"WHEEZING",	"ALCOHOL CONSUMING",	"COUGHING","SHORTNESS OF BREATH",	"SWALLOWING DIFFICULTY", "CHEST PAIN","GENDER", "AGE",	"SMOKING",	"YELLOW_FINGERS",	"ANXIETY", "PEER_PRESSURE","CHRONIC DISEASE",	"FATIGUE"],
+    "input_description": [
+            "AGE",  
+            "ALCOHOL CONSUMING",  
+            "ALLERGY",  
+            "ANXIETY",  
+            "CHEST PAIN",  
+            "CHRONIC DISEASE", 
+            "COUGHING",
+            "FATIGUE",  
+            "GENDER",  
+            "PEER PRESSURE",  
+            "SHORTNESS OF BREATH",  
+            "SMOKING",  
+            "SWALLOWING DIFFICULTY",  
+            "WHEEZING",  
+            "YELLOW FINGERS"
+        ],
     "output_description": "0 = negative to lung cancer, 1 = positive to lung cancer",
     "model": Binary(lung_cancer_mlp_binary),
     "scaler": Binary(lung_cancer_scaler_binary)
