@@ -8,6 +8,12 @@ def load_models():
     return models_collection
 
 
+def get_available_diseases():
+    collections = load_models()
+    distinct_names = collections.distinct('disease')
+    return distinct_names
+
+
 def load_model(model_name):
     models_collection = load_models()
     model_document = models_collection.find_one({"name": model_name})
