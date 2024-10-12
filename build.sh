@@ -5,18 +5,21 @@ cd database
 cd ..
 
 
-cd mlmodels
+
+cd mlmodels || exit
 sudo ./build.sh
 cd ..
 
-
-cd mlmodels
-sudo ./build.sh
+cd backend || exit
+python3 main.py &
 cd ..
 
-cd backend
-python3 main.py
+
+./backend/examples/requests.sh
+
+cd frontend/galeno || exit
+npm start &
 cd ..
 
-cd backend/examples
-./requests.sh
+echo "system is running"
+

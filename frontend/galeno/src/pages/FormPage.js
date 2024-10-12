@@ -1,7 +1,12 @@
+import DiseaseSelect from "../components/DiseaseSelect/DiseaseSelect";
 
 function FormPage() {
   return (
-    <h1> this is form page</h1>
+    <div>
+      <h1> this is form page</h1>
+      <DiseaseSelect></DiseaseSelect>
+    </div>
+    
   );
 }
 
