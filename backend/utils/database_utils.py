@@ -14,6 +14,17 @@ def get_available_diseases():
     return distinct_names
 
 
+def get_available_models():
+    collections = load_models()
+    distinct_names = collections.distinct('name')
+    return distinct_names
+
+def get_models_names_by_disease(disease):
+    collections = load_models()
+    distinct_names = collections.distinct('type',{'disease':disease})
+    return distinct_names
+
+
 def load_model(model_name):
     models_collection = load_models()
     model_document = models_collection.find_one({"name": model_name})

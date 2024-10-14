@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { fetchAvailableDiseases } from '../../services/commomServices';
 
-function DiseaseSelect(){
+function DiseaseSelect({onDiseaseSelect}){
     const [diseases, setDiseases] = useState([]);
 
     useEffect(()=>{
@@ -11,15 +11,20 @@ function DiseaseSelect(){
             const response = await fetchAvailableDiseases();
             setDiseases(response);
         }
-
         loadAvailableDiseases();
     },[])
+
+    const handleDiseaseChange = (event) => {
+        console.log(event.target.value);
+        onDiseaseSelect(event.target.value);
+      };
 
     return (
         <div>
             <label>Select the disease you want diagnosis for: </label>
-             <select>
-                {
+             <select onChange={handleDiseaseChange}>
+                <option value={""} selected>---------</option>
+                {   
                     diseases.map((disease, index)=>(
                         <option key={index} value={disease}> {disease}</option>
                     ))
