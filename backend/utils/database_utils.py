@@ -21,7 +21,12 @@ def get_available_models():
 
 def get_models_names_by_disease(disease):
     collections = load_models()
-    distinct_names = collections.distinct('type',{'disease':disease})
+    distinct_names = collections.distinct('name',{'disease':disease})
+    return distinct_names
+
+def get_models_input_description_by_name(name):
+    collections = load_models()
+    distinct_names = collections.distinct('input_description',{'name':name})
     return distinct_names
 
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DiseaseSelect from "../components/DiseaseSelect/DiseaseSelect";
 import ModelSelect from "../components/ModelSelect/ModelSelect";
+import ModelForm from "../components/ModelForm/ModelForm";
 function FormPage() {
   
   const [disease, selectDisease] = useState("");
@@ -17,7 +18,9 @@ function FormPage() {
         onModelSelect={selectModel}
         disease={disease}
       />
-      
+      <ModelForm
+        model={model}
+      />
     </div>
     
   );

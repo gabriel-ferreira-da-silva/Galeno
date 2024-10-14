@@ -33,4 +33,13 @@ def get_models_name_by_disaese(disease):
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+@general_blueprint.route("/models/inputdescription/<name>", methods=['GET'])
+def get_models_input_by_name(name):
+    try:
+        input = get_models_input_description_by_name(name)
+        return jsonify(input)
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
     

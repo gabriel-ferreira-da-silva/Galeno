@@ -29,7 +29,6 @@ function ModelSelect({onModelSelect,disease}){
                 <select onChange={handleModelChange}>
                     <option value={""} selected >---------</option>
                     {   
-                        
                         models.map((model, index)=>(
                             <option key={index} value={model}> {model}</option>
                         ))
