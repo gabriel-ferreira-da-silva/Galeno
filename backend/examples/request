@@ -13,10 +13,23 @@ curl --header "Content-Type: application/json" \
   --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
   http://localhost:5000/api/heartfailure/predict/kmedoid
 
+
+
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{ "name":"heart failure","input": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
+  http://localhost:5000/api/models/predict
+
+
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
   http://localhost:5000/api/lungcancer/predict/mlp
+
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"name":"lung-cancer-mlp", "input": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
+  http://localhost:5000/api/models/predict
 
 
 

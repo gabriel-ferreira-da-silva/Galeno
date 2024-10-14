@@ -7,12 +7,10 @@ def load_models():
     models_collection = db['models']
     return models_collection
 
-
 def get_available_diseases():
     collections = load_models()
     distinct_names = collections.distinct('disease')
     return distinct_names
-
 
 def get_available_models():
     collections = load_models()
@@ -29,6 +27,10 @@ def get_models_input_description_by_name(name):
     distinct_names = collections.distinct('input_description',{'name':name})
     return distinct_names
 
+def get_models_output_description_by_name(name):
+    collections = load_models()
+    distinct_names = collections.distinct('output_description',{'name':name})
+    return distinct_names
 
 def load_model(model_name):
     models_collection = load_models()

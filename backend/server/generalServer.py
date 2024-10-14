@@ -1,7 +1,7 @@
 from utils.commom_utils import *
 from utils.database_utils import *
 from flask import Blueprint, jsonify, request
-
+import numpy as np
 
 general_blueprint = Blueprint('general_blueprint', __name__)
 
@@ -43,3 +43,20 @@ def get_models_input_by_name(name):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
+
+@general_blueprint.route("/models/predict", methods=['POST'])
+def predict_by_model():
+    try:
+        data = request.get_json()
+        input = data["input"]
+        name = data["name"]
+
+        mlmodel = load_model(name)
+        input = np.array(input)
+        res = mlmodel.predict(input.reshape(1,-1))
+        output_description = get_models_output_description_by_name(name)
+
+        return jsonify({"res":res.tolist(),"output_description":output_description})
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
