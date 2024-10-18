@@ -3,20 +3,20 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { fetchModelsInputDescriptionByName } from '../../services/commomServices';
 
-function ModelForm({model,setForm}){
+function ModelForm({model,disease,setForm}){
     const [inputs, setInputs] = useState([]);
     const [array, setArray] = useState([])
     useEffect(()=>{
-        const fetchInputDescription = async(modelname)=>{
-            if(modelname=="") return;
-            const response = await fetchModelsInputDescriptionByName(modelname)
+        const fetchInputDescription = async(diseasename)=>{
+            if(diseasename=="") return;
+            const response = await fetchModelsInputDescriptionByName(diseasename)
             setInputs(response);
             setArray(new Array(response.length).fill(0));
         }
 
-        fetchInputDescription(model)
+        fetchInputDescription(disease)
 
-    },[model])
+    },[disease])
 
     const updateArray = (event) => {
         const index = Number(event.target.name); 

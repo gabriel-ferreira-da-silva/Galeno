@@ -22,7 +22,7 @@ export const fetchModelsNamesByDisease = async (disease)=>{
 
 export const fetchModelsInputDescriptionByName = async (name)=>{
     try {
-        const response = await axios.get(`http://localhost:5000/api/models/inputdescription/`+name);
+        const response = await axios.get(`http://localhost:5000/api/diseases/inputdescription/`+name);
         return response.data;
     } catch (error) {
         console.error('Error fetching avalilable diseases for endpoint http://localhost:5000/api/diseases:', error);

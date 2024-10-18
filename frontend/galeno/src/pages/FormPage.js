@@ -22,6 +22,7 @@ function FormPage() {
       />
       <ModelForm
         model={model}
+        disease={disease}
         setForm={setArray}
       />
       <ResultsPanel

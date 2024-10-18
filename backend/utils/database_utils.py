@@ -7,6 +7,14 @@ def load_models():
     models_collection = db['models']
     return models_collection
 
+
+def load_diseases():
+    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    db = client['galeno_database']
+    diseases_collection = db['diseases']
+    return diseases_collection
+
+
 def get_available_diseases():
     collections = load_models()
     distinct_names = collections.distinct('disease')
@@ -22,8 +30,8 @@ def get_models_names_by_disease(disease):
     distinct_names = collections.distinct('name',{'disease':disease})
     return distinct_names
 
-def get_models_input_description_by_name(name):
-    collections = load_models()
+def get_diseases_input_description_by_name(name):
+    collections = load_diseases()
     distinct_names = collections.distinct('input_description',{'name':name})
     return distinct_names
 
