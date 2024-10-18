@@ -12,11 +12,11 @@ db.createCollection("models", {
         },
         description: {
           bsonType: "string",
-          description: "The name of the machine learning model"
+          description: "description of the machine learning"
         },
         disease: {
           bsonType: "string",
-          description: "The disease that the model predicts"
+          description: "name of the disease the model trained for"
         },
         type: {
           bsonType: "string",
@@ -26,10 +26,6 @@ db.createCollection("models", {
           bsonType: ["date", "null"],
           description: "The date when the model was last updated"
         },
-        input_description: {
-          bsonType: "array",
-          description: "Description of the model's input"
-        },
         output_description: {
           bsonType: "string",
           description: "Description of the model's output"
@@ -37,6 +33,33 @@ db.createCollection("models", {
         model: {
           bsonType: "binData",
           description: "The actual machine learning model serialized as binary data"
+        }
+      }
+    }
+  }
+})
+
+db.createCollection("diseases", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "disease", "scaler"],
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "The name of the disease classificaction"
+        },
+        description: {
+          bsonType: "string",
+          description: "description of the disease"
+        },
+        disease: {
+          bsonType: "string",
+          description: "name formal name of the disease"
+        },
+        input_description: {
+          bsonType: "array",
+          description: "Description of the model's input"
         },
         scaler: {
           bsonType: "binData",
@@ -48,3 +71,4 @@ db.createCollection("models", {
 })
 
 db.models.createIndex({ name: 1 }, { unique: true });
+db.diseases.createIndex({ name: 1 }, { unique: true });
