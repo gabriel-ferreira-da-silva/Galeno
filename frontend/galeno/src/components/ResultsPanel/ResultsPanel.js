@@ -12,7 +12,7 @@ function ResultsPanel({model, input}){
                 const response = await modelPredict(modelName,inputArray);
                 setResults(response);
             }catch(e){
-                setResults(null)
+                setResults(null);
             }
             
         }
