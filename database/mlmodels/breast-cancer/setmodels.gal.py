@@ -7,18 +7,19 @@ from datetime import datetime
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client['galeno_database']
 models_collection = db['models']
+diseases_collection = db['diseases']
 
-with open('breast-cancer-gaussian.pkl', 'rb') as f:
+with open('setup/breast_cancer_gaussian.pkl', 'rb') as f:
     breast_cancer_gaussian_binary = f.read()
 
-with open('breast-cancer-scaler.pkl', 'rb') as f:
+with open('setup/breast-cancer-scaler.pkl', 'rb') as f:
     breast_cancer_scaler_binary = f.read()
+disease = "breast cancer"
 
-breast_cancer_gaussian_document = {
-    "name": "breast_cancer_gpr",
-    "disease": "breast-cancer",
-    "type": "gpr",
-    "last_update": datetime.now(),
+
+breast_cancer_disease_document = {
+    "name": disease,
+    "disease": disease,
     "input_description": [
                                     "area_mean",
                                     "area_se",
@@ -51,11 +52,22 @@ breast_cancer_gaussian_document = {
                                     "texture_se",
                                     "texture_worst"
                                 ],
-    "output_description": "0 = negative to , 1 = positive ",
-    "model": Binary(breast_cancer_gaussian_binary),
     "scaler": Binary(breast_cancer_scaler_binary)
 }
 
 
+breast_cancer_gaussian_document = {
+    "name": "breast_cancer_gpr",
+    "disease": disease,
+    "type": "gpr",
+    "last_update": datetime.now(),
+    "output_description": "0 = negative to , 1 = positive ",
+    "model": Binary(breast_cancer_gaussian_binary),
+}
+
+
 result = models_collection.insert_one( breast_cancer_gaussian_document)
+print(f"Model inserted with _id: {result.inserted_id}")
+
+result = diseases_collection.insert_one( breast_cancer_disease_document)
 print(f"Model inserted with _id: {result.inserted_id}")
