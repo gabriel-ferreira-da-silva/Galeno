@@ -7,9 +7,10 @@ if [ -z "$1" ]; then
 fi
 
 COMMIT_MSG="$1"
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 
 git add .
 
 git commit -m "$COMMIT_MSG"
 
-git push
+git push -u origin "$BRANCH"
