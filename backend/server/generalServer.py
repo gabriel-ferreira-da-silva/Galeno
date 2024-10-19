@@ -51,6 +51,9 @@ def predict_by_model():
         input = data["input"]
         name = data["name"]
 
+        print(input)
+        print(name)
+
         mlmodel = load_model(name)
         input = np.array(input)
         res = mlmodel.predict(input.reshape(1,-1))

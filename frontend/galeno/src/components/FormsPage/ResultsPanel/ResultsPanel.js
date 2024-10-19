@@ -19,10 +19,11 @@ function ResultsPanel({model, input}){
             }catch(e){
                 setResults(null)
             }
-            
         }
-        
-        predict(model,input)
+
+        if(model && input   ){
+            predict(model,input);
+        }
     },[model, input])
 
     useEffect(()=>{
@@ -30,12 +31,16 @@ function ResultsPanel({model, input}){
             setRes(results.res);
             setDescription(results.output_description[0]);
             setModelDescription(results.model_description);
+        }else{
+            setRes(null);
+            setDescription(null);
+            setModelDescription(null);
         }
-    },[results])
+    },[results,model])
     return (
         <div className={style.container}>
             {
-                results ?
+                results && model ?
                 <div className={style.container}>
                     <label className={style.title}>analyzis</label>
                     <div className={style.panel}>
@@ -51,7 +56,6 @@ function ResultsPanel({model, input}){
                      
                         <label className={style.text}> Model Details <label>{modelDescription}</label></label>
                         <br></br>
-
                     </div>
                 </div>
 

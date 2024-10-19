@@ -20,36 +20,29 @@ Galeno provides predictions based on ml models and data in MLMODELS directory. T
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
-  http://localhost:5000/api/heartfailure/predict/mlp
-  
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
-  http://localhost:5000/api/heartfailure/predict/kmean
-  
-curl --header "Content-Type: application/json" \
-  --request POST \
-  --data '{"input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]}' \
-  http://localhost:5000/api/heartfailure/predict/kmedoid
-
+  --data '{ \
+  				"name":"lung-cancer-mlp"  ,  \
+  				:input_array": [0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]  \
+  		}' \
+  http://localhost:5000/api/models/predict
 ```
 
-## workflow of Galeno
-
-
-![](https://github.com/gabriel-ferreira-da-silva/Galeno/blob/main/doc/img/Untitled(3).png?raw=true)
-
-## stack
-
-
-
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_wAM-QRdFtITvOLKa6Yfscv5mewaggdAJTdyxsRjqaf-lrXWtauyitvbEIQrGLMvylQ&usqp=CAU)
 
 
 
 
+## <u> Galeno's workflow and archtecture</u>
 
 
+![](https://github.com/gabriel-ferreira-da-silva/Galeno/blob/main/doc/img/newpattern.png?raw=true)
 
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThejmwKaSdHRIvI4IPLvGudxHKM92fKiSDuA&s)
+# <u> stack</u>
+
+<div style="display:flex; flex-direction: row">
+    <img src= "https://github.com/gabriel-ferreira-da-silva/gabriel-ferreira-da-silva/blob/main/flask.png?raw=true" style="width:80px; height:80px; margin:20px">
+    <img src= "https://github.com/gabriel-ferreira-da-silva/gabriel-ferreira-da-silva/blob/main/bash.png?raw=true" style="width:80px; height:80px; margin:20px">
+    <img src= "https://github.com/gabriel-ferreira-da-silva/gabriel-ferreira-da-silva/blob/main/react.png?raw=true" style="width:80px; height:80px; margin:20px">
+    <img src= "https://github.com/gabriel-ferreira-da-silva/gabriel-ferreira-da-silva/blob/main/mongo.png?raw=true" style="width:80px; height:80px; margin:20px">
+    <img src= "https://github.com/gabriel-ferreira-da-silva/gabriel-ferreira-da-silva/blob/main/scikit.png?raw=true" style="width:100px; height:80px; margin:20px">
+</div>
+
