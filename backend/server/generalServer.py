@@ -55,8 +55,9 @@ def predict_by_model():
         input = np.array(input)
         res = mlmodel.predict(input.reshape(1,-1))
         output_description = get_models_output_description_by_name(name)
+        model_description = get_models_description_by_name(name)
 
-        return jsonify({"res":res.tolist(),"output_description":output_description})
+        return jsonify({"res":res.tolist(),"output_description":output_description,"model_description": model_description})
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500

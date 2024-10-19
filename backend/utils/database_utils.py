@@ -40,6 +40,11 @@ def get_models_output_description_by_name(name):
     distinct_names = collections.distinct('output_description',{'name':name})
     return distinct_names
 
+def get_models_description_by_name(name):
+    collections = load_models()
+    distinct_names = collections.distinct('description',{'name':name})
+    return distinct_names
+
 def load_model(model_name):
     models_collection = load_models()
     model_document = models_collection.find_one({"name": model_name})

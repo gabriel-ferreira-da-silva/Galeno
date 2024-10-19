@@ -2,11 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { modelPredict } from '../../../services/commomServices';
+import style from './style.module.css'
 
 function ResultsPanel({model, input}){
     const [results, setResults] = useState(null);
-    let description = "";
-    let res = "";
+    const [res, setRes] = useState(null);
+    const [description, setDescription] = useState(null);
+    const [modelDescription, setModelDescription] = useState(null);
+
     useEffect(()=>{
         const predict = async (modelName,inputArray)=>{
             try{
@@ -14,25 +17,45 @@ function ResultsPanel({model, input}){
                 const response = await modelPredict(modelName,inputArray);
                 setResults(response);
             }catch(e){
-                setResults(null);
+                setResults(null)
             }
             
         }
         
-        predict(model,input)  
+        predict(model,input)
     },[model, input])
-    
-    
+
+    useEffect(()=>{
+        if(results){
+            setRes(results.res);
+            setDescription(results.output_description[0]);
+            setModelDescription(results.model_description);
+        }
+    },[results])
     return (
         <div>
             {
                 results ?
                 <div>
-                    <p>results</p>
-                    <p>{"results: " +res}</p>
-                    <p>{description}</p>
+                    <label className={style.title}>analyzis</label>
+                    <div className={style.panel}>
+                        
+                        <label className={style.text}> Results
+                            <label>
+                                {"diagnosis is : {" + res +"}"}
+                            </label>
+                            <label>
+                                {"results interpretation:  " + description}
+                            </label>
+                        </label>
+                     
+                        <label className={style.text}> Model Details <label>{modelDescription}</label></label>
+                        <br></br>
+
+                    </div>
                 </div>
-                 :
+
+                :
                 <div></div>
 
             }
