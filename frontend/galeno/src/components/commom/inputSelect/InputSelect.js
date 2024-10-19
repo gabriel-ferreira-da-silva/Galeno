@@ -2,11 +2,11 @@ import React from "react";
 import style from './InputSelect.module.css'
 
 
-function InputSelect({handleChange, options}){
+function InputSelect({handleChange, text, options}){
     return(
 
-        <div>
-           <label>Select the disease you want diagnosis for: </label>
+        <div className={style.formPanel}>
+           <label>{text}</label>
 
             <div>
                 <select className={style.galSelect} onChange={handleChange}>

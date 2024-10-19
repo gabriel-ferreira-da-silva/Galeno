@@ -2,7 +2,11 @@
 
 
 
-/* ModelForm.module.css */
+p{
+  font-size: 24px;
+  color:var(--light-blue);
+  font-weight: 500;
+}
 
 .fadeIn {
   opacity: 0;
@@ -15,6 +19,13 @@
   visibility: visible; /* Make visible when active */
 }
 
+.formPanel{
+  width: 600px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 5px;
+  margin:5px;
+}
 
 .inputHolder{
   display: flex;

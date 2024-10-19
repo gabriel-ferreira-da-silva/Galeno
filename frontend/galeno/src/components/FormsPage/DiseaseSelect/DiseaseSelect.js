@@ -24,6 +24,7 @@ function DiseaseSelect({onDiseaseSelect}){
             <InputSelect
                 handleChange={handleDiseaseChange}
                 options={diseases}
+                text={"select the diseaset to analyze: "}
             ></InputSelect>
         </div>
     );    

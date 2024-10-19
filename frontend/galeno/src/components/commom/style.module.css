@@ -1,6 +1,6 @@
 :root {
-    --light-blue: #3498db;
-    --shining-blue: #2effff;
-    --dark-blue: #5555ff;
+    --light-blue: hsl(204, 70%, 53%);
+    --shining-blue: #5ca2e4;
+    --dark-blue: #4343dd;
+    --darker-blue: #000081;
   }
-  

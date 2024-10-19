@@ -5,6 +5,8 @@ import { modelPredict } from '../../../services/commomServices';
 
 function ResultsPanel({model, input}){
     const [results, setResults] = useState(null);
+    let description = "";
+    let res = "";
     useEffect(()=>{
         const predict = async (modelName,inputArray)=>{
             try{
@@ -17,14 +19,20 @@ function ResultsPanel({model, input}){
             
         }
         
-        predict(model,input)
+        predict(model,input)  
     },[model, input])
+    
+    
     return (
         <div>
             {
                 results ?
-                <label>Prediction: {JSON.stringify(results)}</label>
-                :
+                <div>
+                    <p>results</p>
+                    <p>{"results: " +res}</p>
+                    <p>{description}</p>
+                </div>
+                 :
                 <div></div>
 
             }

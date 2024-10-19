@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchModelsInputDescriptionByName } from '../../../services/commomServices';
 import { NormalButton } from '../../commom/buttons/Buttons';
 import style from './ModelForm.module.css';
+
 import Fade from "react-reveal/Fade"
 
 function ModelForm({ model, disease, setForm }) {
@@ -46,24 +47,29 @@ function ModelForm({ model, disease, setForm }) {
 
     return (
         <div>
-            {model ? (
+            {model && disease ? (
                 <div>
+                    <p>Fill the form</p>
+
                     <Fade bottom duration={1000}>
-                        <label>Fill the form</label>
-                        {inputs.map((input, index) => (
-                            <div key={index} className={style.inputHolder}>
-                                <label className={style.label}>{input}</label>
-                                <input
-                                    name={index}
-                                    className={style.input}
-                                    onChange={updateArray}
-                                />
-                            </div>
-                        ))}
+                        <div className={style.formPanel}>
+                            {inputs.map((input, index) => (
+                                <div key={index} className={style.inputHolder}>
+                                    <label className={style.label}>{input}</label>
+                                    <input
+                                        name={index}
+                                        className={style.input}
+                                        onChange={updateArray}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                        
                         <NormalButton
                             onClickCallback={submitArray}
                             text={"Submit"}
                         />
+                    
                     </Fade>    
                 </div>
             ) : (
