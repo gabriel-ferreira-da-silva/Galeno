@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { fetchAvailableDiseases } from '../../services/commomServices';
-
+import { fetchAvailableDiseases } from '../../../services/commomServices';
+import InputSelect from '../../commom/inputSelect/InputSelect';
 function DiseaseSelect({onDiseaseSelect}){
     const [diseases, setDiseases] = useState([]);
 
@@ -21,16 +21,10 @@ function DiseaseSelect({onDiseaseSelect}){
 
     return (
         <div>
-            <label>Select the disease you want diagnosis for: </label>
-             <select onChange={handleDiseaseChange}>
-                <option value={""} selected>---------</option>
-                {   
-                    diseases.map((disease, index)=>(
-                        <option key={index} value={disease}> {disease}</option>
-                    ))
-                }
-            </select>
-            
+            <InputSelect
+                handleChange={handleDiseaseChange}
+                options={diseases}
+            ></InputSelect>
         </div>
     );    
   

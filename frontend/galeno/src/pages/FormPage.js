@@ -1,8 +1,8 @@
 import { useState } from "react";
-import DiseaseSelect from "../components/DiseaseSelect/DiseaseSelect";
-import ModelSelect from "../components/ModelSelect/ModelSelect";
-import ModelForm from "../components/ModelForm/ModelForm";
-import ResultsPanel from "../components/ResultsPanel/ResultsPanel";
+import DiseaseSelect from "../components/FormsPage/DiseaseSelect/DiseaseSelect";
+import ModelSelect from "../components/FormsPage/ModelSelect/ModelSelect";
+import ModelForm from "../components/FormsPage/ModelForm/ModelForm";
+import ResultsPanel from "../components/FormsPage/ResultsPanel/ResultsPanel";
 function FormPage() {
   
   const [disease, selectDisease] = useState("");

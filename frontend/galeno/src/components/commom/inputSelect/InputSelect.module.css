@@ -1,0 +1,12 @@
+@import url(../style.module.css);
+
+.galSelect{
+  width: 200px;
+  height: 30px;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  border: solid white 1px;
+  border-radius: 3px;
+  background-color: var(--light-blue);
+  color:white;
+}

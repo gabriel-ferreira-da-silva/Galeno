@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { fetchModelsNamesByDisease } from '../../services/commomServices';
-
+import { fetchModelsNamesByDisease } from '../../../services/commomServices';
+import InputSelect from '../../commom/inputSelect/InputSelect';
+import Fade from "react-reveal/Fade"
 function ModelSelect({onModelSelect,disease}){
     const [models, setModel] = useState([]);
 
@@ -24,19 +25,15 @@ function ModelSelect({onModelSelect,disease}){
     return (
         <div>
             {disease!==""?
-                <div>
-                <label>Select the model you want to use </label>
-                <select onChange={handleModelChange}>
-                    <option value={""} selected >---------</option>
-                    {   
-                        models.map((model, index)=>(
-                            <option key={index} value={model}> {model}</option>
-                        ))
-                    }
-                </select>
-                </div>
-            
+                <Fade bottom duration={1000}>
+                    <InputSelect
+                        handleChange={handleModelChange}
+                        options={models}
+                    ></InputSelect>
+                </Fade>
             : <div></div>}
+            
+            
         </div>
     );    
   
