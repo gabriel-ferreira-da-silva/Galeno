@@ -2,7 +2,7 @@ import pymongo
 import pickle
 
 def load_models():
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
+    client = pymongo.MongoClient("mongodb://localhost:27017/",serverSelectionTimeoutMS=5000) 
     db = client['galeno_database']
     models_collection = db['models']
     return models_collection

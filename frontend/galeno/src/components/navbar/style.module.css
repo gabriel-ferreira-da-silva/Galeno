@@ -1,0 +1,22 @@
+@import url(../commom/style.module.css);
+.navholder{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    background-color: var(--light-blue);
+    height: 50px;
+    color:white;
+}
+
+.navholder img{
+    height: 20px;
+    width: 20px;
+}
+
+.navholder h1{
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+}

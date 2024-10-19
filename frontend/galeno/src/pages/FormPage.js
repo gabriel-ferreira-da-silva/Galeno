@@ -4,6 +4,9 @@ import ModelSelect from "../components/FormsPage/ModelSelect/ModelSelect";
 import ModelForm from "../components/FormsPage/ModelForm/ModelForm";
 import ResultsPanel from "../components/FormsPage/ResultsPanel/ResultsPanel";
 import SelectsPanel from "../components/FormsPage/SelectPanel/SelectPanels";
+import { Galnavbar } from "../components/navbar/Galnavbar";
+
+import style from '../components/FormsPage/style.module.css'
 function FormPage() {
   
   const [disease, selectDisease] = useState("");
@@ -12,22 +15,24 @@ function FormPage() {
 
   return (
     <div>
-      <SelectsPanel
-        selectDisease={selectDisease}
-        selectModel={selectModel}
-        disease={disease}
-      ></SelectsPanel>
+      <Galnavbar></Galnavbar>
+      <div className={style.container }>
+        <SelectsPanel
+            selectDisease={selectDisease}
+            selectModel={selectModel}
+            disease={disease}
+          ></SelectsPanel>
 
-      <ModelForm
-        model={model}
-        disease={disease}
-        setForm={setArray}
-      />
-      <ResultsPanel
-        model={model}
-        input={array}
-      />
-      
+          <ModelForm
+            model={model}
+            disease={disease}
+            setForm={setArray}
+          />
+          <ResultsPanel
+            model={model}
+            input={array}
+          />
+      </div>    
     </div>
     
   );

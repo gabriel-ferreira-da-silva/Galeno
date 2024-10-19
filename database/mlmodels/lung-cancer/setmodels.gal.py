@@ -20,7 +20,7 @@ with open('setupfiles/lung-cancer-scaler.pkl', 'rb') as f:
 disease="lung cancer"
 lung_cancer_disease_document = {
     "name": disease,
-    "description":"age is in years and the others input are 1 for no and 2 for yes",
+    "description" : "age is in years and the others input are 1 for no and 2 for yes",
     "disease": disease,
     "input_description": [
             "AGE",  

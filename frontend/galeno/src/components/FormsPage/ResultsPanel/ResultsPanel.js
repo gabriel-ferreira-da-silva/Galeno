@@ -33,10 +33,10 @@ function ResultsPanel({model, input}){
         }
     },[results])
     return (
-        <div>
+        <div className={style.container}>
             {
                 results ?
-                <div>
+                <div className={style.container}>
                     <label className={style.title}>analyzis</label>
                     <div className={style.panel}>
                         
