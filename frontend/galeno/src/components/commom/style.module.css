@@ -1,6 +1,8 @@
 :root {
     --light-blue: hsl(204, 70%, 53%);
+    --dark-blue: hsl(204, 99%, 38%);
     --shining-blue: #5ca2e4;
-    --dark-blue: #4343dd;
     --darker-blue: #000081;
+    --light-grey: #bef2fc;
+
   }

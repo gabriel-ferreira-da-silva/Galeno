@@ -15,7 +15,6 @@ function FormPage() {
 
   return (
     <div>
-      <Galnavbar></Galnavbar>
       <div className={style.container }>
         <SelectsPanel
             selectDisease={selectDisease}
