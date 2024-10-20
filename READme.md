@@ -6,7 +6,7 @@ Galeno provides predictions based on ml models and data in MLMODELS directory. T
 
 
 <video width="320" height="240" controls>
-  <source src="video.mov" type="video/mp4">
+  <source src="https://github.com/gabriel-ferreira-da-silva/Galeno/blob/main/doc/video.mp4" type="video/mp4">
 </video>
 
 
