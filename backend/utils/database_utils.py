@@ -30,6 +30,11 @@ def get_models_names_by_disease(disease):
     distinct_names = collections.distinct('name',{'disease':disease})
     return distinct_names
 
+def get_diseases_description_by_name(name):
+    collections = load_diseases()
+    distinct_names = collections.distinct('description',{'name':name})
+    return distinct_names
+
 def get_diseases_input_description_by_name(name):
     collections = load_diseases()
     distinct_names = collections.distinct('input_description',{'name':name})

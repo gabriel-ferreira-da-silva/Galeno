@@ -19,6 +19,39 @@ disease = "breast cancer"
 
 breast_cancer_disease_document = {
     "name": disease,
+    "description":""""
+        Features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. They describe characteristics of the cell nuclei present in the image.
+    n the 3-dimensional space is that described in: [K. P. Bennett and O. L. Mangasarian: "Robust Linear Programming Discrimination of Two Linearly Inseparable Sets", Optimization Methods and Software 1, 1992, 23-34].
+    \n
+    This database is also available through the UW CS ftp server:
+    ftp ftp.cs.wisc.edu
+    cd math-prog/cpo-dataset/machine-learn/WDBC/
+    \n
+    Also can be found on UCI Machine Learning Repository: https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29
+
+    Attribute Information:
+    \n
+    - Diagnosis (M = malignant, B = benign)
+    3-32)
+\n
+    Ten real-valued features are computed for each cell nucleus:
+\n
+   \na) radius (mean of distances from center to points on the perimeter)
+   \nb) texture (standard deviation of gray-scale values)
+    \nc) perimeter
+    \nd) area
+    \ne) smoothness (local variation in radius lengths)
+    \nf) compactness (perimeter^2 / area - 1.0)
+    \ng) concavity (severity of concave portions of the contour)
+    \nh) concave points (number of concave portions of the contour)
+    \ni) symmetry
+    \nj) fractal dimension ("coastline approximation" - 1)
+\n
+  \n  The mean, standard error and "worst" or largest (mean of the three
+    largest values) of these features were computed for each image,
+    resulting in 30 features. For instance, field 3 is Mean Radius, field
+    13 is Radius SE, field 23 is Worst Radius.
+    """,
     "disease": disease,
     "input_description": [
                                     "area_mean",
@@ -59,9 +92,10 @@ breast_cancer_disease_document = {
 breast_cancer_gaussian_document = {
     "name": "breast_cancer_gpr",
     "disease": disease,
+    "description": "breast_cancer_gpr is a gaussian process regressor trained with kaggle breast cancer wisconsin dataset https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data",
     "type": "gpr",
     "last_update": datetime.now(),
-    "output_description": "0 = negative to , 1 = positive ",
+    "output_description": "the results may range from 0 to 1, where the closest to 0 means negative diagnosis and 1 is positive diagnosis",
     "model": Binary(breast_cancer_gaussian_binary),
 }
 

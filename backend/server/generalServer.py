@@ -68,3 +68,14 @@ def predict_by_model():
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+
+@general_blueprint.route("/diseases/description/<disease>", methods=['GET'])
+def get_disease_description_by_disease(disease):
+    try:
+        description = get_diseases_description_by_name(disease)
+        return jsonify(description)
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

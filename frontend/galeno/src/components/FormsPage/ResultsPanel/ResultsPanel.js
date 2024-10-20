@@ -54,8 +54,9 @@ function ResultsPanel({model, input}){
                             </label>
                         </label>
                      
-                        <label className={style.text}> Model Details <label>{modelDescription}</label></label>
-                        <br></br>
+                        <label className={style.text}> Model Details 
+                            <label>{modelDescription}</label>
+                        </label>
                     </div>
                 </div>
 

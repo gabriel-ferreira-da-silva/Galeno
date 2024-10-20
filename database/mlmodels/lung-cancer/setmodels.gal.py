@@ -20,7 +20,33 @@ with open('setupfiles/lung-cancer-scaler.pkl', 'rb') as f:
 disease="lung cancer"
 lung_cancer_disease_document = {
     "name": disease,
-    "description" : "age is in years and the others input are 1 for no and 2 for yes",
+    "description" : '''
+    
+    The effectiveness of cancer prediction system helps the people to know their cancer risk with low cost and it also helps the people to take the appropriate decision based on their cancer risk status. The data is collected from the website online lung cancer prediction system .
+\n
+    Total no. of attributes:16
+    No .of instances:284\n
+    Attribute information:
+\n
+    Gender: M(male), F(female)\n
+    Age: Age of the patient\n
+    Smoking: YES=2 , NO=1.\n
+    Yellow fingers: YES=2 , NO=1.\n
+    Anxiety: YES=2 , NO=1.\n
+    Peer_pressure: YES=2 , NO=1.\n
+    Chronic Disease: YES=2 , NO=1.\n
+    Fatigue: YES=2 , NO=1.\n
+    Allergy: YES=2 , NO=1.\n
+    Wheezing: YES=2 , NO=1.\n
+    Alcohol: YES=2 , NO=1.\n
+    Coughing: YES=2 , NO=1.\n
+    Shortness of Breath: YES=2 , NO=1.\n
+    Swallowing Difficulty: YES=2 , NO=1.\n
+    Chest pain: YES=2 , NO=1.\n
+    Lung Cancer: YES , NO.\n
+\n
+    ''',
+    
     "disease": disease,
     "input_description": [
             "AGE",  
@@ -44,7 +70,7 @@ lung_cancer_disease_document = {
 
 lung_cancer_mlp_document = {
     "name": "lung-cancer-mlp",
-    "description":"age is in years and the others input are 1 for no and 2 for yes",
+    "description":"lun-cancer-mlp is a multilayer perceptron neural network trained with kaggle lung cancer dataset https://www.kaggle.com/datasets/mysarahmadbhat/lung-cancer.",
     "disease": disease,
     "type": "mlp",
     "last_update": datetime.now(),

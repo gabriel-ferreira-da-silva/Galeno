@@ -1,11 +1,8 @@
 import { useState } from "react";
-import DiseaseSelect from "../components/FormsPage/DiseaseSelect/DiseaseSelect";
-import ModelSelect from "../components/FormsPage/ModelSelect/ModelSelect";
 import ModelForm from "../components/FormsPage/ModelForm/ModelForm";
 import ResultsPanel from "../components/FormsPage/ResultsPanel/ResultsPanel";
 import SelectsPanel from "../components/FormsPage/SelectPanel/SelectPanels";
-import { Galnavbar } from "../components/navbar/Galnavbar";
-
+import DescriptionPanel from "../components/FormsPage/descriptionPanel/DescriptionPanel";
 import style from '../components/FormsPage/style.module.css'
 function FormPage() {
   
@@ -21,6 +18,7 @@ function FormPage() {
             selectModel={selectModel}
             disease={disease}
           ></SelectsPanel>
+
 
           <ModelForm
             model={model}
