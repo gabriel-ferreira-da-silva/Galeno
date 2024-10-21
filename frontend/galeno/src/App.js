@@ -7,8 +7,9 @@ import InfoPage from './pages/InfoPage';
 function App() {
   return (
     <div>
-      <Galnavbar></Galnavbar>
+      
       <Router>
+        <Galnavbar></Galnavbar>
         <Routes>
         <Route path="/" element={<FormPage/>}/>
         <Route path="/predict" element={<FormPage/>}/>

@@ -63,12 +63,14 @@ function ModelForm({ model, disease, setForm }) {
                                     />
                                 </div>
                             ))}
-                        </div>
                         
                         <NormalButton
                             onClickCallback={submitArray}
                             text={"Submit"}
                         />
+                        </div>
+                        
+                        
                     
                     </Fade>    
                 </div>

@@ -15,6 +15,8 @@
     margin:10px;
     display: flex;
     flex-direction: row;
+    color: black;
+
     height: 30px;
     justify-content: space-between;
     align-items: center;
@@ -24,8 +26,10 @@
     border-top-right-radius: 5px;
     transition: border-bottom, background-color, color .5s;
     color:white;
+    text-decoration: none;
     bottom:0px;
     margin-bottom: 0px;
+    
 }
 
 .navoption svg{
@@ -39,13 +43,16 @@
     color:white;
     margin-bottom: 0px;
     margin-left: 0px;
-
 }
 
-.navoption div{
-    margin:5px;
-    margin-bottom: 0px;
+
+.navoption div {
+    margin: 10px;
+    color: black;
+    text-decoration: none; /* Remove underline specifically from Links */
+    color: inherit; /* Ensure text color matches parent */
 }
+
 
 .navoption:hover{
     border-bottom: solid white 3px;
