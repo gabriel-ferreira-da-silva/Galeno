@@ -1,0 +1,56 @@
+@import url(../../commom/style.module.css);
+.infoPanel{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.imgHolder{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+
+.imgHolder img{
+    max-width: 300px;
+    max-height: 500px;
+    margin: 20px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.textHolder{
+    margin: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--light-blue);
+}
+
+.textHolder h1{
+    font-size: 50px;
+    font-weight: 2000;
+}
+.textHolder p{
+    font-size: 24px;
+    color: var(--light-blue);
+
+}
+
+.imgHolder p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    margin-top: 1px;
+    font-weight: 800;
+    color: var(--dark-blue);
+    max-width: 275px;
+
+}

@@ -34,10 +34,11 @@
 }
 
 .navoption img{
-    width: 20px;
+    width: 15px;
     height: 20px;
     color:white;
     margin-bottom: 0px;
+    margin-left: 0px;
 
 }
 
@@ -55,6 +56,8 @@
 }
 
 .navbarholder{
+    margin-left: 0px;
+
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -68,6 +71,7 @@
 
 
 .navholder{
+
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -75,13 +79,15 @@
     background-color: var(--light-blue);
     height: 50px;
     color: white;
-    margin-left: 10px;
+    margin-left:0px;
+    margin-left: 0px;
+
 }
 
 
 .navholder img{
     height: 50px;
-    width: 50px;
+    width: 43px;
 }
 
 .navholder h1{

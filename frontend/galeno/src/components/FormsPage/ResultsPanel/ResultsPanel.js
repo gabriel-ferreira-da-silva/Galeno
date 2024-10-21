@@ -42,10 +42,10 @@ function ResultsPanel({model, input}){
             {
                 results && model ?
                 <div className={style.container}>
-                    <label className={style.title}>analyzis</label>
+                    <label className={style.title}>Analyses</label>
                     <div className={style.panel}>
                         
-                        <label className={style.text}> Results
+                        <label className={style.text}> {model+" results"}
                             <label>
                                 {"diagnosis is : {" + res +"}"}
                             </label>
