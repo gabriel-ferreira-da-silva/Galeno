@@ -11,6 +11,7 @@ function SelectsPanel({selectDisease, selectModel,disease}) {
         <div className={style.panel}>
             <DiseaseSelect
               onDiseaseSelect={selectDisease}
+              text={"select target disease: "}
             />
             
             <ModelSelect

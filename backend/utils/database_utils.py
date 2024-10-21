@@ -1,5 +1,7 @@
+import datetime
 import pymongo
 import pickle
+from bson.binary import Binary
 
 def load_models():
     client = pymongo.MongoClient("mongodb://localhost:27017/",serverSelectionTimeoutMS=5000) 
@@ -24,6 +26,20 @@ def get_available_models():
     collections = load_models()
     distinct_names = collections.distinct('name')
     return distinct_names
+
+def insert_model(data):
+    models = load_models()
+    new_model_document = {
+        "name":data["name"],
+        "type":data["type"],
+        "description":data["description"],
+        "disease":data["disease"],
+        "last_update":datetime.now(),
+        "output_description": data["output_description"],
+        "model":Binary(data["model"])
+    }
+    result = models.insert_one(new_model_document)
+    return result
 
 def get_models_names_by_disease(disease):
     collections = load_models()

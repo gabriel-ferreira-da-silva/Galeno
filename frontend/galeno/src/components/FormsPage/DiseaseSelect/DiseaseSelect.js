@@ -1,19 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { fetchAvailableDiseases } from '../../../services/commomServices';
 import InputSelect from '../../commom/inputSelect/InputSelect';
-function DiseaseSelect({onDiseaseSelect}){
+import { loadAvailableDiseases } from './DiseaseSelect.utils';
+function DiseaseSelect({onDiseaseSelect, text}){
     const [diseases, setDiseases] = useState([]);
 
     useEffect(()=>{
-        const loadAvailableDiseases = async () =>{
-            const response = await fetchAvailableDiseases();
-            setDiseases(response);
-        }
-        loadAvailableDiseases();
-    },[])
 
+        loadAvailableDiseases(setDiseases);
+    
+    })
+    
     const handleDiseaseChange = (event) => {
         console.log(event.target.value);
         onDiseaseSelect(event.target.value);
@@ -24,7 +22,7 @@ function DiseaseSelect({onDiseaseSelect}){
             <InputSelect
                 handleChange={handleDiseaseChange}
                 options={diseases}
-                text={"select the diseaset to analyze: "}
+                text={text}
             ></InputSelect>
         </div>
     );    

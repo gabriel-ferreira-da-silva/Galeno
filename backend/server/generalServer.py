@@ -44,6 +44,15 @@ def get_disease_input_by_name(name):
         return jsonify({'error': str(e)}), 500
     
 
+@general_blueprint.route("/models/add", methods=['POST'])
+def insert_new_model():
+    try:
+        data = request.get_json()
+        result = insert_model(data)
+        return result
+    except:
+        return jsonify({"error":"failed to add new model"})
+
 @general_blueprint.route("/models/predict", methods=['POST'])
 def predict_by_model():
     try:
@@ -76,7 +85,7 @@ def get_disease_description_by_disease(disease):
     try:
         description = get_diseases_description_by_name(disease)
         return jsonify(description)
-    
+        
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
