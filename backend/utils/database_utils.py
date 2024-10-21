@@ -50,6 +50,18 @@ def get_models_description_by_name(name):
     distinct_names = collections.distinct('description',{'name':name})
     return distinct_names
 
+def get_model_schema( sample_size=100):
+    collection = load_models()
+    sample_documents = collection.find().limit(sample_size)
+    schema = {}
+    
+    for document in sample_documents:
+        for key, value in document.items():
+            if key not in schema:
+                schema[key] = str(type(value)).replace("<class '", "").replace("'>", "")
+    
+    return schema
+
 def load_model(model_name):
     models_collection = load_models()
     model_document = models_collection.find_one({"name": model_name})

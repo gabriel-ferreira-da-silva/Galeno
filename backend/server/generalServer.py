@@ -79,3 +79,14 @@ def get_disease_description_by_disease(disease):
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+
+
+@general_blueprint.route("/models/schema", methods=['GET'])
+def get_models_schema():
+    try:
+        schema = get_model_schema()
+        return jsonify(schema)
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

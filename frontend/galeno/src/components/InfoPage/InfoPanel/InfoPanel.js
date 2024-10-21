@@ -2,13 +2,15 @@ import React from "react";
 import galen from "../../../assets/galen.png";
 import style from "./style.module.css"
 import Fade from "react-reveal/Fade"
+import galenInv from '../../../assets/galen-inverted.png';
+
 export default function InfoPanel(){
     return (
         <div>
             <Fade bottom duration={1000}>
                 <div className={style.infoPanel}>
                     <div className={style.imgHolder}>
-                        <img src={galen}></img>
+                        <img src={galenInv}></img>
                         <p>Aelius Galenus, ancient physician</p>
                     </div>
 

@@ -1,9 +1,9 @@
 import './App.css';
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import FormPage from './pages/FormPage';
-import { Galnavbar } from './components/navbar/Galnavbar';
 import InfoPage from './pages/InfoPage';
+import AddModelPage from './pages/AddModelPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Galnavbar } from './components/navbar/Galnavbar';
 function App() {
   return (
     <div>
@@ -13,6 +13,7 @@ function App() {
         <Routes>
         <Route path="/" element={<FormPage/>}/>
         <Route path="/predict" element={<FormPage/>}/>
+        <Route path="/addmodel" element={<AddModelPage/>}/>
         <Route path="/info" element={<InfoPage/>}/>
         </Routes>
       </Router>
