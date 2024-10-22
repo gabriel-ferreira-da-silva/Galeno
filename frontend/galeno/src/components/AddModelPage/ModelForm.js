@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import DiseaseSelect from "../FormsPage/DiseaseSelect/DiseaseSelect";
 import axios from "axios";
+import style from "./style.module.css"
+import { NormalButton } from "../commom/buttons/Buttons";
 export default function ModelForm(){
 
     const [disease, setDiseases] = useState([]);
@@ -13,7 +15,7 @@ export default function ModelForm(){
       
     function handleSubmit(event) {
         event.preventDefault()
-        const url = 'http://localhost:3000/uploadFile';
+        const url = 'http://localhost:3000/api/models/add';
         const formData = new FormData();
         formData.append('file', file);
         formData.append('fileName', file.name);
@@ -29,42 +31,51 @@ export default function ModelForm(){
 
     return (
         <div>
-            <div>
-                <div>
-                    <p>name</p>
+            <h1> Fill the model form</h1>
+            <div className={style.container}>
+                
+                <div className={style.inputHolder}>
+                    <div>Name: </div>
                     <input></input>
                 </div>
-                <div>
-                    <p>type</p>
+                <div className={style.inputHolder}>
+                    <div>Type:</div>
                     <input type="textarea"></input>
                 </div>
-                <div>
-                    <p>disease</p>
+                <div className={style.inputHolder}>
+                    <div>Disease: </div>
                     <DiseaseSelect
                         onDiseaseSelect={setDiseases}
                         text={""}
                     ></DiseaseSelect>
                 </div>
 
-                <div>
-                    <p>description</p>
+                <div className={style.inputHolder}>
+                    <div>Description: </div>
                     <input></input>
                 </div>
 
-                <div>
-                    <p>output description</p>
+                <div className={style.inputHolder}>
+                    <div>Output Description: </div>
                     <input></input>
                 </div>
 
-                <div>
-                    <p>upload model</p>
-                    <form onSubmit={handleSubmit}>
-                        <h1>React File Upload</h1>
-                        <input type="file" onChange={handleChange}/>
-                        <button type="submit">Upload</button>
-                    </form>
+                <div className={style.inputHolder}>
+                    <div>Upload Model:</div>
+                    <label for="file-upload" className={style.fileInput}>
+                            Browse
+                        </label>
+                    <input id="file-upload" type="file"  onChange={handleChange}/>
+                    {file?
+                    <div>{file.name}</div>
+                    :
+                    <div>No file</div>
+                    }
                 </div>
-                
+                <div className={style.NormalButton} onClick={handleSubmit}>
+                    submit
+                </div>
+
             </div>
         </div>
         

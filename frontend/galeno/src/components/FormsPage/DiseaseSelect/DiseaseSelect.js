@@ -10,7 +10,7 @@ function DiseaseSelect({onDiseaseSelect, text}){
 
         loadAvailableDiseases(setDiseases);
     
-    })
+    },[])
     
     const handleDiseaseChange = (event) => {
         console.log(event.target.value);
