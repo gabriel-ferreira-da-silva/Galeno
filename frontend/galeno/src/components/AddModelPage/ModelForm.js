@@ -64,19 +64,27 @@ export default function ModelForm() {
                         onDiseaseSelect={(selectedDisease) => setDiseases(selectedDisease)}
                     />
                 </div>
-                <div className={style.inputHolder}>
+                <div className={style.textHolder}>
                     <div>Description: </div>
-                    <input name="description" onChange={handleInputChange} />
+                    <textarea className={style.description} name="description" onChange={handleInputChange} />
                 </div>
-                <div className={style.inputHolder}>
+                <div className={style.textHolder}>
                     <div>Output Description: </div>
-                    <input name="output_description" onChange={handleInputChange} />
+                    <textarea className={style.description} onChange={handleInputChange} />
                 </div>
-                <div className={style.inputHolder}>
-                    <div>Upload Model:</div>
-                    <label htmlFor="file-upload" className={style.fileInput}>Browse</label>
+                <div className={style.inputModelHolder}>
+                    <div></div>
+                    <label htmlFor="file-upload" className={style.fileInput}>
+                        <div>Upload Model</div>
+                    </label>
                     <input id="file-upload" type="file" onChange={handleChange} />
-                    {file ? <div>{file.name}</div> : <div>No file</div>}
+                    
+                    {file ? <div className={style.filetitle}>
+                                <p>model: {file.name}</p>
+                            </div> 
+                            : 
+                            <div></div>}
+
                 </div>
                 <button className={style.NormalButton} onClick={handleSubmit}>
                     Submit

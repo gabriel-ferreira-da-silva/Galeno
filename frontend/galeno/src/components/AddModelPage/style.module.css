@@ -33,16 +33,56 @@ h1{
 .inputHolder{
     display: flex;
     flex-direction: row;
-    margin:30px ;
+    margin:10px ;
+    margin-bottom: 0px;
 }
 
-.inputHolder div{
+.textHolder{
+    display: flex;
+    flex-direction: column;
+    margin:10px ;
+    margin-bottom: 0px;
+}
+
+.textHolder div{
     margin-right: 10px;
     color:black;
     font-size: 20px;
     justify-content: left;
     align-content: center;
     font-weight: 400;
+}
+
+.inputModelHolder{
+    display: flex;
+    flex-direction: row;
+    margin:10px ;
+    margin-left:0px ;
+    margin-bottom: 0px;
+}
+
+.inputModelHolder div{
+    margin-right: 10px;
+    color:black;
+    font-size: 20px;
+    justify-content: left;
+    align-content: center;
+    font-weight: 400;
+}
+
+
+.inputHolder div{
+    
+    color:black;
+    font-size: 20px;
+    justify-content: left;
+    align-content: center;
+    font-weight: 400;
+}
+
+.description { 
+    width: 300px;
+    height: 100px;
 }
 
 .inputHolder input{
@@ -54,12 +94,29 @@ input[type="file"] {
     display: none;
   }
 
-.fileInput{
+  .fileInput{
     background-color: var(--light-blue);
     color:white;
-    padding:5px;
+
+    margin: 10px;
+    padding: 10px;
+    width: fit-content;
+    height: 20px;
+    justify-content: center;
+    align-content: center;
     border-radius: 3px;
     border: solid var(--light-blue) 2px;
+}
+
+
+.fileInput div{
+    color:white;
+}
+
+.filetitle{
+    margin-left:20px;
+    color:white;
+    font-size: large;
 }
 
 .fileInput:hover{
