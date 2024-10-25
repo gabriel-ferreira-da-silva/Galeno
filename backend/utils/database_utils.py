@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import pymongo
 import pickle
 from bson.binary import Binary
@@ -29,17 +29,43 @@ def get_available_models():
 
 def insert_model(data):
     models = load_models()
-    new_model_document = {
-        "name":data["name"],
-        "type":data["type"],
-        "description":data["description"],
-        "disease":data["disease"],
-        "last_update":datetime.now(),
-        "output_description": data["output_description"],
-        "model":Binary(data["model"])
-    }
-    result = models.insert_one(new_model_document)
-    return result
+    required_fields = ["name", "type", "description", "disease", "output_description", "model"]
+    print(data)
+    for field in required_fields:
+        if field not in data:
+            print(f"Error: '{field}' is missing from input data.")
+            return f"error: missing field '{field}'"
+
+    print("Inserting model with the following details:")
+    for key in ["name", "type", "model"]:
+        print(f"{key}: {data[key]}")
+
+    try:    
+        new_model_document = {
+            "name": data["name"],
+            "type": data["type"],
+            "description": data["description"],
+            "disease": data["disease"],
+            "last_update": datetime.now(),
+            "output_description": data["output_description"],
+            "model": Binary(data["model"]) if isinstance(data["model"], bytes) else None
+        }
+    except Exception as e:
+        print("Error creating document:", e)
+        return "error creating document"
+
+    if new_model_document["model"] is None:
+        print("Error: 'model' data is not in binary format.")
+        return "error: model data not binary"
+
+    try:
+        result = models.insert_one(new_model_document)
+    except Exception as e:
+        print("Error inserting model:", e)
+        return "error inserting model"
+
+    print("Insertion result:", result.inserted_id)
+    return result.inserted_id
 
 def get_models_names_by_disease(disease):
     collections = load_models()

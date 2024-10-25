@@ -67,3 +67,13 @@ export const modelPredict = async (name,input)=>{
         throw error;
     }
 };
+
+export const addNewModel = async (data)=>{
+    try {
+        const response = await axios.post(`http://localhost:5000/api/models/add`,data);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching avalilable diseases for endpoint http://localhost:5000/api/models/add:', error);
+        throw error;
+    }
+};

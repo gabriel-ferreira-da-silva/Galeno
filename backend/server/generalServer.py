@@ -47,11 +47,32 @@ def get_disease_input_by_name(name):
 @general_blueprint.route("/models/add", methods=['POST'])
 def insert_new_model():
     try:
-        data = request.get_json()
+        # Access form data for text fields
+        data = {
+            "name": request.form.get("name"),
+            "type": request.form.get("type"),
+            "description": request.form.get("description"),
+            "disease": request.form.get("disease"),
+            "output_description": request.form.get("output_description"),
+        }
+
+        # Access and convert the file to binary
+        file = request.files.get("model")
+        if file:
+            data["model"] = Binary(file.read())
+        else:
+            return jsonify({"error": "Model file is missing"}), 400
+
+        # Insert the model into MongoDB
         result = insert_model(data)
-        return result
-    except:
-        return jsonify({"error":"failed to add new model"})
+        print(result)
+
+        # Return success response
+        return jsonify({"result": result}), 201
+    except Exception as e:
+        print("Error adding model:", e)
+        return jsonify({"error": "Failed to add new model"}), 500
+    
 
 @general_blueprint.route("/models/predict", methods=['POST'])
 def predict_by_model():
