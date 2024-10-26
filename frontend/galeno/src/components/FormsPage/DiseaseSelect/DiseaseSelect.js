@@ -7,9 +7,7 @@ function DiseaseSelect({onDiseaseSelect, text}){
     const [diseases, setDiseases] = useState([]);
 
     useEffect(()=>{
-
         loadAvailableDiseases(setDiseases);
-    
     },[])
     
     const handleDiseaseChange = (event) => {

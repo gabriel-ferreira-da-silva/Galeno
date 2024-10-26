@@ -10,9 +10,27 @@ export const fetchAvailableDiseases = async ()=>{
     }
 };
 
+export const fetchModelByName = async(name)=>{
+    try{
+        const response = await axios.get(`http://localhost:5000/api/models/byname/`+name);
+        return response.data
+    }catch(error){
+        throw error
+    }
+}
+export const fetchAvailableModels = async ()=>{
+    try{
+        const response = await axios.get(`http://localhost:5000/api/models`);
+        return response.data;
+    } catch (error){
+        console.error("error fetichin models" + error);
+        throw error;
+    }
+}
+
 export const fetchModelsNamesByDisease = async (disease)=>{
     try {
-        const response = await axios.get(`http://localhost:5000/api/models/`+disease);
+        const response = await axios.get(`http://localhost:5000/api/models/bydisease/`+disease);
         return response.data;
     } catch (error) {
         console.error('Error fetching avalilable diseases for endpoint http://localhost:5000/api/diseases:', error);

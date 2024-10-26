@@ -19,11 +19,19 @@ def get_models():
         return jsonify({'error': str(e)}), 500
     
 
-@models_blueprint.route("/models/<disease>", methods=['GET'])
+@models_blueprint.route("/models/bydisease/<disease>", methods=['GET'])
 def get_models_name_by_disaese(disease):
     try:
         names = getModelsNamesByDisease(disease)
         return jsonify(names)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@models_blueprint.route("/models/byname/<name>", methods=['GET'])
+def get_model_by_name(name):
+    try:
+        model = getModelByName(str(name))
+        return jsonify(model)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

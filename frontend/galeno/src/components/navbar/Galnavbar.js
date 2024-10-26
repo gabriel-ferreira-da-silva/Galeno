@@ -4,7 +4,6 @@ import React from "react";
 import { Link } from "react-router-dom"; // Import Link for navigation
 import style from './style.module.css';
 import galen from '../../assets/galen.png';
-import galenInv from '../../assets/galen-inverted.png';
 
 export function Galnavbar() {
     return (

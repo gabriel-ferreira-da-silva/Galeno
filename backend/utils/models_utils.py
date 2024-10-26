@@ -60,6 +60,20 @@ def getModelsNamesByDisease(disease):
     distinct_names = collections.distinct('name',{'disease':disease})
     return distinct_names
 
+def getModelByName(name):
+    collections = loadModels()
+    data = collections.find_one({'name':str(name)})
+    document = {
+            "name": data["name"],
+            "type": data["type"],
+            "description": data["description"],
+            "disease": data["disease"],
+            "last_update": datetime.now(),
+            "output_description": data["output_description"],
+        }
+    return document
+
+
 def getModelOutputDescriptionByName(name):
     collections = loadModels()
     distinct_names = collections.distinct('output_description',{'name':name})
