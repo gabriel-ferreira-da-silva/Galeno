@@ -2,33 +2,21 @@ from datetime import datetime
 import pymongo
 import pickle
 from bson.binary import Binary
+from .diseases_utils import *
 
-def load_models():
+def loadModels():
     client = pymongo.MongoClient("mongodb://localhost:27017/",serverSelectionTimeoutMS=5000) 
     db = client['galeno_database']
     models_collection = db['models']
     return models_collection
 
-
-def load_diseases():
-    client = pymongo.MongoClient("mongodb://localhost:27017/")
-    db = client['galeno_database']
-    diseases_collection = db['diseases']
-    return diseases_collection
-
-
-def get_available_diseases():
-    collections = load_models()
-    distinct_names = collections.distinct('disease')
-    return distinct_names
-
-def get_available_models():
-    collections = load_models()
+def getAvailableModels():
+    collections = loadModels()
     distinct_names = collections.distinct('name')
     return distinct_names
 
-def insert_model(data):
-    models = load_models()
+def insertModel(data):
+    models = loadModels()
     required_fields = ["name", "type", "description", "disease", "output_description", "model"]
     print(data)
     for field in required_fields:
@@ -67,33 +55,23 @@ def insert_model(data):
     print("Insertion result:", result.inserted_id)
     return result.inserted_id
 
-def get_models_names_by_disease(disease):
-    collections = load_models()
+def getModelsNamesByDisease(disease):
+    collections = loadModels()
     distinct_names = collections.distinct('name',{'disease':disease})
     return distinct_names
 
-def get_diseases_description_by_name(name):
-    collections = load_diseases()
-    distinct_names = collections.distinct('description',{'name':name})
-    return distinct_names
-
-def get_diseases_input_description_by_name(name):
-    collections = load_diseases()
-    distinct_names = collections.distinct('input_description',{'name':name})
-    return distinct_names
-
-def get_models_output_description_by_name(name):
-    collections = load_models()
+def getModelOutputDescriptionByName(name):
+    collections = loadModels()
     distinct_names = collections.distinct('output_description',{'name':name})
     return distinct_names
 
-def get_models_description_by_name(name):
-    collections = load_models()
+def getModelDescriptionByName(name):
+    collections = loadModels()
     distinct_names = collections.distinct('description',{'name':name})
     return distinct_names
 
-def get_model_schema( sample_size=100):
-    collection = load_models()
+def getModelSchema( sample_size=100):
+    collection = loadModels()
     sample_documents = collection.find().limit(sample_size)
     schema = {}
     
@@ -104,8 +82,8 @@ def get_model_schema( sample_size=100):
     
     return schema
 
-def load_model(model_name):
-    models_collection = load_models()
+def loadModel(model_name):
+    models_collection = loadModels()
     model_document = models_collection.find_one({"name": model_name})
     
     if model_document is None:
@@ -115,8 +93,8 @@ def load_model(model_name):
     neural_network = pickle.loads(model_binary)
     return neural_network
 
-def load_scaler(model_name):
-    models_collection = load_models()
+def loadScaler(model_name):
+    models_collection = loadModels()
     model_document = models_collection.find_one({"name": model_name})
     
     if model_document is None:
@@ -126,8 +104,8 @@ def load_scaler(model_name):
     neural_network = pickle.loads(model_binary)
     return neural_network
 
-def get_model_object(model_name):
-    models_collection = load_models()
+def getModelObject(model_name):
+    models_collection = loadModels()
     object = models_collection.find_one({"name": model_name})
     
     if object is None:
@@ -136,3 +114,8 @@ def get_model_object(model_name):
     object['scaler'] = load_scaler(model_name)
     object['model'] = load_model(model_name)
     return object
+
+def get_available_diseases():
+    collections = load_models()
+    distinct_names = collections.distinct('disease')
+    return distinct_names
