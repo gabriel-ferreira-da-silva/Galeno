@@ -107,29 +107,13 @@ def loadModel(model_name):
     neural_network = pickle.loads(model_binary)
     return neural_network
 
-def loadScaler(model_name):
-    models_collection = loadModels()
-    model_document = models_collection.find_one({"name": model_name})
+def loadScaler(name):
+    models_collection = loadDiseases()
+    model_document = models_collection.find_one({"name": name})
     
     if model_document is None:
         raise FileNotFoundError("Model not found in the database")
     
     model_binary = model_document['scaler']
-    neural_network = pickle.loads(model_binary)
-    return neural_network
-
-def getModelObject(model_name):
-    models_collection = loadModels()
-    object = models_collection.find_one({"name": model_name})
-    
-    if object is None:
-        raise FileNotFoundError("Model not found in the database")
-    
-    object['scaler'] = load_scaler(model_name)
-    object['model'] = load_model(model_name)
-    return object
-
-def get_available_diseases():
-    collections = load_models()
-    distinct_names = collections.distinct('disease')
-    return distinct_names
+    scaler = pickle.loads(model_binary)
+    return scaler

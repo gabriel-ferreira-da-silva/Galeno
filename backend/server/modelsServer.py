@@ -5,6 +5,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from io import BytesIO
+
+from sklearn.model_selection import train_test_split
 from utils.models_utils import *
 from utils.diseases_utils import *
 
@@ -157,12 +159,64 @@ def analyse_data():
         return jsonify({"correlation": correlation_base64,
                         "distribuitions": distribuitions,
                         "boxplots": boxplots,
+                        "columns":df.columns.to_list(),
                         })
 
     except Exception as e:
         print("Error:", e) 
         return jsonify({'error': str(e)}), 500
 
+
+
+
+@models_blueprint.route("/models/trainmodel", methods=['POST'])
+def train_model():
+    try:
+        if 'traindata' not in request.files:
+            return jsonify({"error": "No file part in the request"}), 400
+
+        # Access form data using `request.form`
+        datafile = request.files['traindata']
+        modelname = request.form.get("model")
+        target = request.form.get("target")
+
+        if datafile.filename == '':
+            return jsonify({"error": "No file selected"}), 400
+
+        # Proceed with model training
+        df = pd.read_csv(datafile)
+        model = loadModel(modelname)
+        modelInfo = getModelByName(modelname)
+        scaler = loadScaler(modelInfo["disease"])
+        models_collection = loadModels()
+
+        # Prepare and split data
+        x = df.drop(target, axis=1)
+        y = df[target]
+
+        # Reorder `x` columns to match scaler's expected order
+        x = x[scaler.feature_names_in_]  # This assumes `scaler.feature_names_in_` holds the original feature order
+
+        trainX, testX, trainY, testY = train_test_split(x, y, test_size=0.2)
+        trainX_scaled = scaler.transform(trainX)
+
+        # Train the model and generate predictions
+        model.fit(trainX_scaled, trainY)
+        results = model.predict(scaler.transform(testX)).tolist()  # Convert to list for JSON
+
+        # Serialize and save model
+        model_binary = pickle.dumps(model)
+        models_collection.update_one(
+            {"name": modelname},
+            {"$set": {"model": model_binary}},
+            upsert=True
+        )
+
+        return jsonify({"results": results, "status": "Model trained and saved successfully"}), 200
+
+    except Exception as e:
+        print("Error:", e) 
+        return jsonify({'error': str(e)}), 500
 
 
 @models_blueprint.route("/models/schema", methods=['GET'])

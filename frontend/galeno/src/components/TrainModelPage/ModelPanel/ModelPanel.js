@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import { fetchModelByName, sendTrainData } from "../../../services/commomServices";
 import style from "./style.module.css";
 
-function ModelPanel({ modelname, file, setFile }) {
+function ModelPanel({ modelname, file, setFile,setColumns,img,setImg,distribuitions, setDistribuitions,boxplots, setBoxplots}) {
     const [model, setModel] = useState(null);
-    const [img, setImg] = useState(null);
-    const [distribuitions, setDistribuitions] = useState([]); // Initialize as an empty array
-    const [boxplots, setBoxplots] = useState([]); // Initialize as an empty array
-
     useEffect(() => {
         const fetchModel = async (name) => {
             try {
@@ -44,6 +40,7 @@ function ModelPanel({ modelname, file, setFile }) {
                 (dist) => `data:image/png;base64,${dist}`
             );
             setBoxplots(newBoxplots); // Just set the state
+            setColumns(response.columns)
 
             console.log(newDistributions.length);
         } catch (error) {
@@ -89,25 +86,6 @@ function ModelPanel({ modelname, file, setFile }) {
                     <button className={style.NormalButton} onClick={handleSubmit}>
                         Submit
                     </button>
-
-                    
-                    {img && <img src={img} alt="Correlation Heatmap" />}
-
-                    {distribuitions.length > 0 ? (
-                        distribuitions.map((dist, index) => (
-                            <img key={index} src={dist} alt={`Distribution ${index + 1}`} />
-                        ))
-                    ) : (
-                        <div>Loading distributions...</div>
-                    )}
-
-                    {boxplots.length > 0 ? (
-                        boxplots.map((dist, index) => (
-                            <img key={index} src={dist} alt={`Distribution ${index + 1}`} />
-                        ))
-                    ) : (
-                        <div>Loading distributions...</div>
-                    )}
                 </div>
             ) : (
                 <div></div>
