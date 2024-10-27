@@ -10,6 +10,22 @@ export const fetchAvailableDiseases = async ()=>{
     }
 };
 
+
+export const sendTrainData = async (data) => {
+    try {
+        const response = await axios.post(
+            'http://localhost:5000/api/models/analysedata', 
+            data, 
+            { headers: { 'Content-Type': 'multipart/form-data' } } // Explicitly set for clarity
+        );
+        return response.data;
+    } catch (error) {
+        console.error('Error posting training data to endpoint:', error);
+        throw error;
+    }
+};
+
+
 export const fetchModelByName = async(name)=>{
     try{
         const response = await axios.get(`http://localhost:5000/api/models/byname/`+name);

@@ -7,6 +7,8 @@ export default function TrainModelPage(){
 
     const [disease, setDisease] = useState("")
     const [model, setModel] = useState("")
+    const [file, setFile] = useState(null)
+
 
     return(
         <div>
@@ -15,6 +17,8 @@ export default function TrainModelPage(){
             ></ModelsSelect>
             <ModelPanel
                 modelname={model}
+                file={file}
+                setFile={setFile}
             ></ModelPanel>
         </div>
     )

@@ -1,8 +1,10 @@
-
-
-from flask import Blueprint, jsonify, request
+import base64
+from flask import Blueprint, jsonify, request, Response
 import numpy as np
-
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from io import BytesIO
 from utils.models_utils import *
 from utils.diseases_utils import *
 
@@ -90,6 +92,77 @@ def predict_by_model():
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+
+@models_blueprint.route("/models/analysedata", methods=['POST'])
+def analyse_data():
+    try:
+        if 'traindata' not in request.files:
+            return jsonify({"error": "No file part in the request"}), 400
+
+        datafile = request.files['traindata']
+
+        if datafile.filename == '':
+            return jsonify({"error": "No file selected"}), 400
+
+        df = pd.read_csv(datafile)
+        print("DataFrame loaded:", df.head())  # Check DataFrame content
+        
+        correlation = df.corr()
+        print("Correlation matrix calculated.")
+
+        plt.figure(figsize=(10, 8))
+        sns.heatmap(correlation, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+        plt.title('Correlation Heatmap')
+
+        img_corr = BytesIO()
+        plt.savefig(img_corr, format='png')
+        img_corr.seek(0)
+        correlation_base64 = base64.b64encode(img_corr.getvalue()).decode('utf-8')
+        plt.close()
+        
+        distribuitions = []
+        boxplots = []
+        numeric_columns = df.select_dtypes(include=['number']).columns.tolist()
+        print("Numeric columns:", numeric_columns)  # Check numeric columns
+        
+        for column in numeric_columns:
+            plt.figure(figsize=(5, 4))
+            sns.histplot(df[column], bins=30, kde=True)
+            plt.xlabel(column)
+            plt.ylabel('Frequency')
+            plt.title('Distribution of ' + column)
+            
+            img = BytesIO()
+            plt.savefig(img, format='png')
+            img.seek(0)
+            dist = base64.b64encode(img.getvalue()).decode('utf-8')
+            distribuitions.append(dist)
+            plt.close()
+
+        for column in numeric_columns:
+            plt.figure(figsize=(5, 4))
+            sns.boxplot(data=df[column])
+            plt.title('Box Plots for All Numerical Columns')
+            plt.xticks(rotation=90)
+            
+            img = BytesIO()
+            plt.savefig(img, format='png')
+            img.seek(0)
+            boxplot = base64.b64encode(img.getvalue()).decode('utf-8')
+            boxplots.append(boxplot)
+            plt.close()
+
+        print("Distributions generated:", len(distribuitions))  # Number of distributions generated
+        return jsonify({"correlation": correlation_base64,
+                        "distribuitions": distribuitions,
+                        "boxplots": boxplots,
+                        })
+
+    except Exception as e:
+        print("Error:", e) 
+        return jsonify({'error': str(e)}), 500
+
 
 
 @models_blueprint.route("/models/schema", methods=['GET'])
