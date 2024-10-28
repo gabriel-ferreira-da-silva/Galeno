@@ -1,0 +1,67 @@
+@import url(../commom/style.module.css);
+
+.sidebarpanel{
+    color:white;
+    background-color: var(--light-blue);
+    justify-content: center;
+    align-items: center;
+}
+
+.menupanel{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    background-color: var(--light-blue);
+    min-height:10000px;
+    
+
+}
+
+.togglebutton{
+    
+    display: flex;
+    flex-direction: row;
+    color:white;
+    background-color: var(--light-blue);
+    justify-content: center;
+    align-content: center;
+}
+
+.togglebutton svg{
+    width: 25px;
+    height: 25px;
+}
+
+.menuoption{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    
+    background-color: var(--light-blue);
+    color:white;
+}
+
+
+.menuoption:hover{
+
+    background-color: white;
+    color: var(--light-blue);
+}
+.menuoption svg{
+    margin-right: 5px;
+}
+
+
+.linkholder{
+    margin-top: 10px;
+    display: flex;
+    text-decoration: none;
+    background-color: var(--light-blue);
+    color: white;
+}
+
+.menuoption svg{
+    width: 25px;
+    height: 25px;
+}
