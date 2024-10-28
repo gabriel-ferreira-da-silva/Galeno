@@ -1,0 +1,9 @@
+@import url(../commom/style.module.css);
+
+.panel{
+    color:white;
+    background-color: var(--light-blue);
+    justify-content: baseline;
+    height: fit-content;
+
+}
