@@ -8,7 +8,8 @@
     color:white;
     padding: 10px;
     max-width:fit-content;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 20px;
     border: solid white 2px;
     border-radius: 5px;
     font-size: large;
@@ -35,6 +36,41 @@ h1{
     flex-direction: row;
     margin:10px ;
     margin-bottom: 0px;
+}
+
+.descriptors{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+}
+
+.labelHolder{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin-left:50px;
+    padding: 5px;
+}
+
+.label{
+    color:var(--dark-blue);
+}
+
+.label div{
+    color:black;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    align-content: center;
+    margin: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .textHolder{

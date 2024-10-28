@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import InputSelect from "../../commom/inputSelect/InputSelect";
 import { trainModel } from "../../../services/commomServices";
+import style from "./style.module.css"
+import Fade from "react-reveal/Fade"
+
 function SelectSubtmit({colums,columTarget, setColumtarget,model,file}){
 
     const handleSelect = async (event)=>{
@@ -35,15 +38,23 @@ function SelectSubtmit({colums,columTarget, setColumtarget,model,file}){
 
     return(
         <div>
-            <InputSelect
-            options={colums}
-            text={"select target atribute:"}
-            handleChange={handleSelect}
-            ></InputSelect>
-
-            <button onClick={handleSubmit}>
-                Submit
-            </button>
+            {
+                model && file && colums && 
+                <Fade>
+                    <div className={style.container}>
+                        <InputSelect
+                        options={colums}
+                        text={"select target atribute:"}
+                        handleChange={handleSelect}
+                        ></InputSelect>
+            
+                        <button className={style.NormalButton} onClick={handleSubmit}>
+                            Submit
+                        </button>
+                    </div>
+                </Fade>
+            }
+            
         </div>
     )
 

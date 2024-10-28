@@ -14,6 +14,7 @@ export default function TrainModelPage(){
     const [boxplots, setBoxplots] = useState([]); 
     const [columns, setColumns] = useState([]);
     const [columTarget, setColumtarget] = useState([]);
+    const [loading,setLoading] = useState(false);
 
     return(
         <div>
@@ -30,9 +31,11 @@ export default function TrainModelPage(){
                 setBoxplots={setBoxplots}
                 distribuitions={distribuitions}
                 setDistribuitions={setDistribuitions}
-                setColumns={setColumns}               
+                setColumns={setColumns}             
+                setLoading={setLoading}  
             ></ModelPanel>
             <AnalysisPanel
+                loading={loading}
                 img={img}
                 boxplots={boxplots}
                 distribuitions={distribuitions}

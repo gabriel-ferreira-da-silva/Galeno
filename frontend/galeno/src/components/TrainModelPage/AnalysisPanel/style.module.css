@@ -1,130 +1,54 @@
 @import url(../../commom/style.module.css);
 
-.NormalButton{
 
+.loadingHolder{
     justify-self: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
     align-items: center;
-    background-color: var(--light-blue);
-    color:white;
-    padding: 10px;
-    max-width:fit-content;
-    margin-top: 20px;
-    border: solid white 2px;
-    border-radius: 5px;
-    font-size: large;
+    margin-top: 10px;
+    margin-left: 50%;
 }
 
-h1{
-    color: var(--light-blue);
-    margin-left: 20px;
+.imageHolder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+.title{
+    color: var(--dark-blue);
+    font-size: 30px;
+    font-weight: 800;
+}
+.corrimage{
+    width: 700px;
+    height: 500px;
 }
 
-.NormalButton:active{
-    background-color: var(--dark-blue);
+.distHolder{
+    margin:30px;
+    justify-content: center;
+    align-content: center;
+
 }
+.distimage{
+    width: 300px;
+    height: 250px;
+}
+
 
 .container{
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
     margin: 30px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-.inputHolder{
-    display: flex;
-    flex-direction: row;
-    margin:10px ;
-    margin-bottom: 0px;
-}
-
-.textHolder{
-    display: flex;
-    flex-direction: column;
-    margin:10px ;
-    margin-bottom: 0px;
-}
-
-.textHolder div{
-    margin-right: 10px;
-    color:black;
-    font-size: 20px;
-    justify-content: left;
-    align-content: center;
-    font-weight: 400;
-}
-
-.inputModelHolder{
-    display: flex;
-    flex-direction: row;
-    margin:10px ;
-    margin-left:0px ;
-    margin-bottom: 0px;
-}
-
-.inputModelHolder div{
-    margin-right: 10px;
-    color:black;
-    font-size: 20px;
-    justify-content: left;
-    align-content: center;
-    font-weight: 400;
-}
-
-
-.inputHolder div{
-    
-    color:black;
-    font-size: 20px;
-    justify-content: left;
-    align-content: center;
-    font-weight: 400;
-}
-
-.description { 
-    width: 300px;
-    height: 100px;
-}
-
-.inputHolder input{
-    width: 200px;
-    max-height: 40px;
-}
-
-input[type="file"] {
-    display: none;
-  }
-
-  .fileInput{
-    background-color: var(--light-blue);
-    color:white;
-
-    margin: 10px;
-    padding: 10px;
-    width: fit-content;
-    height: 20px;
-    justify-content: center;
-    align-content: center;
-    border-radius: 3px;
-    border: solid var(--light-blue) 2px;
-}
-
-
-.fileInput div{
-    color:white;
-}
-
-.filetitle{
-    margin-left:20px;
-    color:white;
-    font-size: large;
-}
-
-.fileInput:hover{
-    background-color: var(--dark-blue);
-}
-
-.fileInput:active{
-    background-color: white;
-    color: var(--light-blue);
-    border: solid var(--light-blue) 2px;
-}

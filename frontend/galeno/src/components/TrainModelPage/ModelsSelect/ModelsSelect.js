@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { fetchAvailableModels } from "../../../services/commomServices";
 import InputSelect from "../../commom/inputSelect/InputSelect";
+import style from "./style.module.css"
 export default function ModelsSelect({onModelSelect}){
 
     const [models, setModels] = useState([]);
@@ -24,7 +25,7 @@ export default function ModelsSelect({onModelSelect}){
         onModelSelect(event.target.value);
     }
     return(
-        <div>
+        <div className={style.container}>
             <InputSelect
                 handleChange={handleModelChange}
                 options={models}
