@@ -8,10 +8,14 @@ import TrainModelPage from './pages/TrainModelPage';
 import { Sidebar } from 'react-pro-sidebar';
 import SideMenu from './components/Sidemenu/SideMenu';
 import style from './style.module.css'
+import Favicon from "react-favicon";
+import { useState } from 'react';
 
 function App() {
+  const [icon,setIcon] = useState("/home/gabriel/Desktop/projetos2024/galeno/frontend/galeno/public/gamm.ico")
   return (
     <div>
+      <Favicon url={icon} />
       <Router>
         <Galnavbar></Galnavbar>
         <div className={style.body} style={{heigh:'100%'}}>
