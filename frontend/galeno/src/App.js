@@ -12,7 +12,7 @@ import Favicon from "react-favicon";
 import { useState } from 'react';
 
 function App() {
-  const [icon,setIcon] = useState("/home/gabriel/Desktop/projetos2024/galeno/frontend/galeno/public/gamm.ico")
+  const [icon,setIcon] = useState("https://github.com/gabriel-ferreira-da-silva/Galeno/raw/refs/heads/sidemenu/frontend/galeno/public/gamm.ico")
   return (
     <div>
       <Favicon url={icon} />
