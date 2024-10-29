@@ -53,8 +53,8 @@ def get_model_by_name(name):
 @models_blueprint.route("/models/byname/<name>", methods=['DELETE'])
 def delete_model_by_name(name):
     try:
-        result = deleteModelByName(str(name))
-        return jsonify(result)
+        deleteModelByName(str(name))
+        return jsonify({"result":"success"})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

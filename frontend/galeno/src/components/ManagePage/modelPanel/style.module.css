@@ -1,1 +1,30 @@
 @import url(../../commom/style.module.css);
+
+
+.panel{
+    margin:20px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 10px;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.deletebutton{
+    margin: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    border-color: none;
+    border-width: 0;
+}
+
+.deletebutton:hover{
+    background-color: rgb(175, 0, 0);
+    color: white;
+}

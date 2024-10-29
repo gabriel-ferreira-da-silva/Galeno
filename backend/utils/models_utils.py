@@ -22,10 +22,14 @@ def getAvailableModels():
     distinct_names = collections.distinct('name')
     return distinct_names
 
+
 def deleteModelByName(name):
     collections = loadModels()
-    result = collections.delete_one({'name':name})
-    return result
+    result = collections.delete_one({'name': name})
+    
+    
+    if result.deleted_count == 0:
+        print("No document found with that name.")
 
 def insertModel(data):
     models = loadModels()

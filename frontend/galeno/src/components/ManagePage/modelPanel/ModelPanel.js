@@ -18,14 +18,14 @@
             console.log(name)
         },[])
         return(
-            <div>
+            <div className={style.panel}>
                 <div>
                     <div>name: {name}</div>
                     <div>disease: {disease}</div>
                     <div>type: {type}</div>
                     <div>description: {description}</div>
                 </div>
-                <button onClick={handleDelete}>
+                <button className={style.deletebutton} onClick={handleDelete}>
                     delete
                 </button>
             </div>
