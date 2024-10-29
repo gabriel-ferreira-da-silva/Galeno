@@ -10,6 +10,26 @@ export const fetchAvailableDiseases = async ()=>{
     }
 };
 
+export const fetchAllModels= async ()=>{
+    try {
+        const response = await axios.get(`http://localhost:5000/api/models/all`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching avalilable diseases for endpoint http://localhost:5000/api/diseases:', error);
+        throw error;
+    }
+};
+
+export const deleteModelByName = async (name)=>{
+    try {
+        const response = await axios.delete(`http://localhost:5000/api/models/byname/`+name);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching avalilable diseases for endpoint http://localhost:5000/api/diseases:', error);
+        throw error;
+    }
+};
+
 
 export const sendTrainData = async (data) => {
     try {

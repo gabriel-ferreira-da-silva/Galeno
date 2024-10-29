@@ -5,6 +5,7 @@ import AddModelPage from './pages/AddModelPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Galnavbar } from './components/navbar/Galnavbar';
 import TrainModelPage from './pages/TrainModelPage';
+import ManagePage from './pages/ManagePage';
 import { Sidebar } from 'react-pro-sidebar';
 import SideMenu from './components/Sidemenu/SideMenu';
 import style from './style.module.css'
@@ -25,6 +26,7 @@ function App() {
             <Route path="/predict" element={<FormPage/>}/>
             <Route path="/addmodel" element={<AddModelPage/>}/>
             <Route path="/train" element={<TrainModelPage/>}/>
+            <Route path="/managemodels" element={<ManagePage/>}/>
             <Route path="/info" element={<InfoPage/>}/>
           </Routes>
         </div>

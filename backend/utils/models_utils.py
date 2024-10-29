@@ -10,10 +10,22 @@ def loadModels():
     models_collection = db['models']
     return models_collection
 
+
+def getModels():
+    models_collection = loadModels()
+    models = models_collection.find({}, {"name": 1, "description": 1, "type": 1, "disease": 1, "_id": 0})
+    return list(models)
+
+
 def getAvailableModels():
     collections = loadModels()
     distinct_names = collections.distinct('name')
     return distinct_names
+
+def deleteModelByName(name):
+    collections = loadModels()
+    result = collections.delete_one({'name':name})
+    return result
 
 def insertModel(data):
     models = loadModels()

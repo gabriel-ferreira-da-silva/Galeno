@@ -14,14 +14,25 @@ models_blueprint = Blueprint('models_blueprint', __name__)
 
 
 @models_blueprint.route("/models", methods=['GET'])
-def get_models():
+def get_available_models():
     try:
         diseases = getAvailableModels()
         return jsonify(diseases)
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+
+@models_blueprint.route("/models/all", methods=['GET'])
+def get_all_models():
+    try:
+        diseases = getModels()
+        return jsonify(diseases)
     
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
 @models_blueprint.route("/models/bydisease/<disease>", methods=['GET'])
 def get_models_name_by_disaese(disease):
@@ -36,6 +47,14 @@ def get_model_by_name(name):
     try:
         model = getModelByName(str(name))
         return jsonify(model)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@models_blueprint.route("/models/byname/<name>", methods=['DELETE'])
+def delete_model_by_name(name):
+    try:
+        result = deleteModelByName(str(name))
+        return jsonify(result)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
