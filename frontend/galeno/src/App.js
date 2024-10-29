@@ -18,7 +18,6 @@ function App() {
     <div>
       <Favicon url={icon} />
       <Router>
-        <Galnavbar></Galnavbar>
         <div className={style.body} style={{heigh:'100%'}}>
           <SideMenu></SideMenu>
           <Routes>

@@ -7,6 +7,34 @@
     align-items: center;
 }
 
+.navholder{
+
+    display: flex;
+    flex-direction: row;
+    background-color: var(--light-blue);
+    height: 50px;
+    color: white;
+    margin-left:0px;
+    margin-left: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.navholder img{
+    height: 50px;
+    width: 43px;
+}
+
+.navholder h1{
+    
+    color:white;
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .menupanel{
     display: flex;
     flex-direction: column;
