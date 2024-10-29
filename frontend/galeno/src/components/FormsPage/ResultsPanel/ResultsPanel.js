@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { modelPredict } from '../../../services/commomServices';
 import style from './style.module.css'
+import Fade from "react-reveal/Fade"
+
 
 function ResultsPanel({model, input}){
     const [results, setResults] = useState(null);
@@ -39,26 +41,29 @@ function ResultsPanel({model, input}){
     },[results,model])
     return (
         <div className={style.container}>
-            {
-                results && model ?
-                <div className={style.container}>
-                    <label className={style.title}>Analyses</label>
-                    <div className={style.panel}>
-                        
-                        <label className={style.text}> {model+" results"}
-                            <label>
-                                {"diagnosis is : {" + res +"}"}
-                            </label>
-                            <label>
-                                {"results interpretation:  " + description}
-                            </label>
-                        </label>
-                     
-                        <label className={style.text}> Model Details 
-                            <label>{modelDescription}</label>
-                        </label>
+            
+                {
+                    results && model ?
+                    <div className={style.container}>
+                        <Fade bottom duration={1000}>
+                            <label className={style.title}>Analyses</label>
+                            <div className={style.panel}>
+                                
+                                <label className={style.text}> {model+" results"}
+                                    <label>
+                                        {"diagnosis is : {" + res +"}"}
+                                    </label>
+                                    <label>
+                                        {"results interpretation:  " + description}
+                                    </label>
+                                </label>
+                            
+                                <label className={style.text}> Model Details 
+                                    <label>{modelDescription}</label>
+                                </label>
+                            </div>
+                        </Fade>
                     </div>
-                </div>
 
                 :
                 <div></div>

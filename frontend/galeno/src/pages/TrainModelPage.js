@@ -4,6 +4,8 @@ import ModelsSelect from "../components/TrainModelPage/ModelsSelect/ModelsSelect
 import ModelPanel from "../components/TrainModelPage/ModelPanel/ModelPanel";
 import AnalysisPanel from "../components/TrainModelPage/AnalysisPanel/AnalysisPanel";
 import SelectSubtmit from "../components/TrainModelPage/SelectAndSubmit/SelectSubmit";
+import Fade from "react-reveal/Fade"
+
 export default function TrainModelPage(){
 
     const [disease, setDisease] = useState("")
@@ -18,9 +20,13 @@ export default function TrainModelPage(){
 
     return(
         <div>
-            <ModelsSelect
-                onModelSelect={setModel}
-            ></ModelsSelect>
+            <h1>Select the model to be trained</h1>
+            <Fade bottom duration={1000}>
+                <ModelsSelect
+                    onModelSelect={setModel}
+                ></ModelsSelect>
+            </Fade>
+            
             <ModelPanel
                 modelname={model}
                 file={file}
