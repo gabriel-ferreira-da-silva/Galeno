@@ -2,6 +2,7 @@ import './App.css';
 import FormPage from './pages/FormPage';
 import InfoPage from './pages/InfoPage';
 import AddModelPage from './pages/AddModelPage';
+import AddDiseasePage from './pages/AddDiseasePage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Galnavbar } from './components/navbar/Galnavbar';
 import TrainModelPage from './pages/TrainModelPage';
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<FormPage/>}/>
             <Route path="/predict" element={<FormPage/>}/>
             <Route path="/addmodel" element={<AddModelPage/>}/>
+            <Route path="/adddisease" element={<AddDiseasePage/>}/>
             <Route path="/train" element={<TrainModelPage/>}/>
             <Route path="/managemodels" element={<ManagePage/>}/>
             <Route path="/info" element={<InfoPage/>}/>

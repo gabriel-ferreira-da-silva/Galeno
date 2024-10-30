@@ -49,21 +49,67 @@ lung_cancer_disease_document = {
     
     "disease": disease,
     "input_description": [
-            "AGE",  
-            "ALCOHOL CONSUMING",  
-            "ALLERGY",  
-            "ANXIETY",  
-            "CHEST PAIN",  
-            "CHRONIC DISEASE", 
-            "COUGHING",
-            "FATIGUE",  
-            "GENDER",  
-            "PEER PRESSURE",  
-            "SHORTNESS OF BREATH",  
-            "SMOKING",  
-            "SWALLOWING DIFFICULTY",  
-            "WHEEZING",  
-            "YELLOW FINGERS"
+            {
+                "input":"AGE",
+                "description":"age in years",
+            },
+            {
+                "input":"ALCOHOL CONSUMING",
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"ALLERGY",  
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"ANXIETY",  
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"CHEST PAIN",  
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"CHRONIC DISEASE",
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"COUGHING",
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"FATIGUE",  
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"GENDER",
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"PEER PRESSURE",  
+                "description":"1 to no 2 to yes"
+            },
+            
+            {
+                "input":"SHORTNESS OF BREATH",  
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"SMOKING",  
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"SWALLOWING DIFFICULTY",  
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"WHEEZING",  
+                "description":"1 to no 2 to yes"
+            },
+            {
+                "input":"YELLOW FINGERS", 
+                "description":"1 to no 2 to yes"
+            },
         ],
     "scaler": Binary(lung_cancer_scaler_binary)
 }

@@ -55,7 +55,7 @@ function ModelForm({ model, disease, setForm }) {
                         <div className={style.formPanel}>
                             {inputs.map((input, index) => (
                                 <div key={index} className={style.inputHolder}>
-                                    <label className={style.label}>{input}</label>
+                                    <label className={style.label}>{input.input}</label>
                                     <input
                                         name={index}
                                         className={style.input}

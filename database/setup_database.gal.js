@@ -59,7 +59,21 @@ db.createCollection("diseases", {
         },
         input_description: {
           bsonType: "array",
-          description: "Description of the model's input"
+          description: "Description of the model's input",
+          items: {
+            bsonType: "object",
+            required: ["input", "description"],
+            properties: {
+              input: {
+                bsonType: "string",
+                description: "The input field for the disease model"
+              },
+              description: {
+                bsonType: "string",
+                description: "A description of the input field"
+              }
+            }
+          }
         },
         scaler: {
           bsonType: "binData",
