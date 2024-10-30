@@ -16,7 +16,7 @@ galeno depends on
  - react
  - flask
 
-to build and the application go to the directory and run the build.sh file
+to build and run the application go to the directory and run the build.sh file
 
 ```
 cd galeno
