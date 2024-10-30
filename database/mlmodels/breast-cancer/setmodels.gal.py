@@ -54,37 +54,128 @@ breast_cancer_disease_document = {
     """,
     "disease": disease,
     "input_description": [
-                                    "area_mean",
-                                    "area_se",
-                                    "area_worst",
-                                    "compactness_mean",
-                                    "compactness_se",
-                                    "compactness_worst",
-                                    "concave points_mean",
-                                    "concave points_se",
-                                    "concave points_worst",
-                                    "concavity_mean",
-                                    "concavity_se",
-                                    "concavity_worst",
-                                    "fractal_dimension_mean",
-                                    "fractal_dimension_se",
-                                    "fractal_dimension_worst",
-                                    "perimeter_mean",
-                                    "perimeter_se",
-                                    "perimeter_worst",
-                                    "radius_mean",
-                                    "radius_se",
-                                    "radius_worst",
-                                    "smoothness_mean",
-                                    "smoothness_se",
-                                    "smoothness_worst",
-                                    "symmetry_mean",
-                                    "symmetry_se",
-                                    "symmetry_worst",
-                                    "texture_mean",
-                                    "texture_se",
-                                    "texture_worst"
-                                ],
+            {
+                "input": "area_mean",
+                "description": "Mean area of the cell nucleus"
+            },
+            {
+                "input": "area_se",
+                "description": "Standard error of the cell nucleus area"
+            },
+            {
+                "input": "area_worst",
+                "description": "Largest or worst value of cell nucleus area"
+            },
+            {
+                "input": "compactness_mean",
+                "description": "Mean compactness (perimeter^2 / area - 1.0) of the cell nucleus"
+            },
+            {
+                "input": "compactness_se",
+                "description": "Standard error of the cell nucleus compactness"
+            },
+            {
+                "input": "compactness_worst",
+                "description": "Largest or worst value of cell nucleus compactness"
+            },
+            {
+                "input": "concave points_mean",
+                "description": "Mean number of concave portions of the cell nucleus contour"
+            },
+            {
+                "input": "concave points_se",
+                "description": "Standard error of the number of concave portions of the contour"
+            },
+            {
+                "input": "concave points_worst",
+                "description": "Largest or worst value of concave portions of the cell nucleus contour"
+            },
+            {
+                "input": "concavity_mean",
+                "description": "Mean severity of concave portions of the cell nucleus contour"
+            },
+            {
+                "input": "concavity_se",
+                "description": "Standard error of the cell nucleus concavity"
+            },
+            {
+                "input": "concavity_worst",
+                "description": "Largest or worst value of cell nucleus concavity"
+            },
+            {
+                "input": "fractal_dimension_mean",
+                "description": "Mean fractal dimension (coastline approximation - 1) of the cell nucleus"
+            },
+            {
+                "input": "fractal_dimension_se",
+                "description": "Standard error of the cell nucleus fractal dimension"
+            },
+            {
+                "input": "fractal_dimension_worst",
+                "description": "Largest or worst value of the cell nucleus fractal dimension"
+            },
+            {
+                "input": "perimeter_mean",
+                "description": "Mean perimeter of the cell nucleus"
+            },
+            {
+                "input": "perimeter_se",
+                "description": "Standard error of the cell nucleus perimeter"
+            },
+            {
+                "input": "perimeter_worst",
+                "description": "Largest or worst value of the cell nucleus perimeter"
+            },
+            {
+                "input": "radius_mean",
+                "description": "Mean radius of the cell nucleus (mean of distances from center to points on the perimeter)"
+            },
+            {
+                "input": "radius_se",
+                "description": "Standard error of the cell nucleus radius"
+            },
+            {
+                "input": "radius_worst",
+                "description": "Largest or worst value of the cell nucleus radius"
+            },
+            {
+                "input": "smoothness_mean",
+                "description": "Mean smoothness (local variation in radius lengths) of the cell nucleus"
+            },
+            {
+                "input": "smoothness_se",
+                "description": "Standard error of the cell nucleus smoothness"
+            },
+            {
+                "input": "smoothness_worst",
+                "description": "Largest or worst value of the cell nucleus smoothness"
+            },
+            {
+                "input": "symmetry_mean",
+                "description": "Mean symmetry of the cell nucleus"
+            },
+            {
+                "input": "symmetry_se",
+                "description": "Standard error of the cell nucleus symmetry"
+            },
+            {
+                "input": "symmetry_worst",
+                "description": "Largest or worst value of the cell nucleus symmetry"
+            },
+            {
+                "input": "texture_mean",
+                "description": "Mean texture (standard deviation of gray-scale values) of the cell nucleus"
+            },
+            {
+                "input": "texture_se",
+                "description": "Standard error of the cell nucleus texture"
+            },
+            {
+                "input": "texture_worst",
+                "description": "Largest or worst value of the cell nucleus texture"
+            }
+        ]
+,
     "scaler": Binary(breast_cancer_scaler_binary)
 }
 

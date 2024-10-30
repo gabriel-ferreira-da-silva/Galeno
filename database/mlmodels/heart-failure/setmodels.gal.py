@@ -47,7 +47,52 @@ heart_failure_disease_document = {
     """,
 
     "disease": disease,
-    "input_description": ["Age","ChestPainType", "Cholesterol", "ExerciseAngina", "FastingBS",  "MaxHR", "Oldpeak","RestingBP",	"RestingECG", "Sex","ST_Slope"],
+    "input_description": [
+                {
+                    "input": "age",
+                    "description": "age of the patient [years]"
+                },
+                {
+                    "input": "Chest pain type",
+                    "description": "[3: Typical Angina, 0: Atypical Angina, 1: Non-Anginal Pain, 2: Asymptomatic]"
+                },
+                {
+                    "input": "cholesterol",
+                    "description": "serum cholesterol [mm/dl]"
+                },
+                {
+                    "input": "Exercise Angina",
+                    "description": "exercise-induced angina [1: Yes, 0: No]"
+                },
+                {
+                    "input": "Fasting BS",
+                    "description": "fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]"
+                },
+                {
+                    "input": "maximun HR",
+                    "description": "maximum heart rate achieved [Numeric value between 60 and 202]"
+                },
+                {
+                    "input": "oldpeak",
+                    "description": "ST [Numeric value measured in depression]"
+                },
+                {
+                    "input": "Resting BP",
+                    "description": "[3: Typical Angina, 0: Atypical Angina, 1: Non-Anginal Pain, 2: Asymptomatic]"
+                },
+                {
+                    "input": "RestingECG",
+                    "description": "resting electrocardiogram results [0: Normal, 1: having ST-T wave abnormality, 2: showing probable or definite left ventricular hypertrophy by Estes' criteria]"
+                },
+                {
+                    "input": "Sex",
+                    "description": "sex of the patient [1: Male, 0: Female]"
+                },
+                {
+                    "input": "ST_Slope",
+                    "description": "the slope of the peak exercise ST segment [0: upsloping, 1: flat, 2: downsloping]"
+                }
+            ],
     "scaler": Binary(heart_failure_scaler_binary)
 }
 

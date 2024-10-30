@@ -5,7 +5,7 @@ import Fade from "react-reveal/Fade";
 import InputDescriptionHolder from "./InputDescriptionHolder/InputDescriptionHolder";
 
 export default function ModelForm() {
-    const [disease, setDisease] = useState("");  // Fixed `disease` state
+    const [disease, setDisease] = useState("");
     const [inputDesc, setInputDesc] = useState([]);
     const [file, setFile] = useState(null);
     const [data, setData] = useState({

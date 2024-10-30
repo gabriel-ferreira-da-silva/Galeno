@@ -26,8 +26,6 @@ def get_disease_input_by_name(name):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
-
-
 @diseases_blueprint.route("/diseases/description/<disease>", methods=['GET'])
 def get_disease_description_by_disease(disease):
     try:
@@ -43,16 +41,16 @@ def get_disease_description_by_disease(disease):
 @diseases_blueprint.route("/diseases/add", methods=['POST'])
 def insert_new_disease():
     try:
-        # Retrieve and parse input data
+        
         input_description = request.form.get("input_description")
         
-        # Assuming `input_description` is a JSON string representing a list of objects
+        
         try:
             input_description = json.loads(input_description)
         except (TypeError, ValueError) as e:
             return jsonify({"error": "Invalid format for input_description"}), 400
 
-        # Construct the data dictionary
+        
         data = {
             "name": request.form.get("name"),
             "description": request.form.get("description"),
@@ -60,14 +58,12 @@ def insert_new_disease():
             "input_description": input_description,
         }
 
-        # Process the binary file for scaler
         file = request.files.get("scaler")
         if file:
             data["scaler"] = Binary(file.read())
         else:
             return jsonify({"error": "Scaler file is missing"}), 400
 
-        # Insert the disease document
         result = insertDisease(data)
         print(result)
         
