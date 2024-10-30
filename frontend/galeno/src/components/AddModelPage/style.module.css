@@ -24,6 +24,7 @@ h1{
 }
 
 .container{
+    width: 1200px;
     margin: 30px;
     padding: 20px;
     border-radius: 5px;
