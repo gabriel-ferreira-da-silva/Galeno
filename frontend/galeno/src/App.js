@@ -14,7 +14,7 @@ import Favicon from "react-favicon";
 import { useState } from 'react';
 
 function App() {
-  const [icon,setIcon] = useState("https://github.com/gabriel-ferreira-da-silva/Galeno/raw/refs/heads/sidemenu/frontend/galeno/public/logo.png")
+  const [icon,setIcon] = useState("https://github.com/gabriel-ferreira-da-silva/Galeno/raw/refs/heads/sidemenu/frontend/galeno/public/gamm.ico")
   return (
     <div>
       <Favicon url={icon} />
