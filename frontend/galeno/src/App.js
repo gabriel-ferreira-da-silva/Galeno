@@ -11,10 +11,13 @@ import { Sidebar } from 'react-pro-sidebar';
 import SideMenu from './components/Sidemenu/SideMenu';
 import style from './style.module.css'
 import Favicon from "react-favicon";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [icon,setIcon] = useState("https://github.com/gabriel-ferreira-da-silva/Galeno/raw/refs/heads/sidemenu/frontend/galeno/public/logo.ico")
+  useEffect(()=>{
+    setIcon("https://github.com/gabriel-ferreira-da-silva/Galeno/raw/refs/heads/sidemenu/frontend/galeno/public/gamm.ico");
+  },[])
   return (
     <div>
       <Favicon url={icon} />
