@@ -1,6 +1,20 @@
 @import url(../../commom/style.module.css);
-.infoPanel{
 
+.title{
+    color: var(--light-blue);
+    margin-top: 20px;
+    font-size: 100px;
+    font-weight: 800;
+    justify-self: center;
+    align-self: center  ;
+}
+.container{
+    display: flex;
+    flex-direction: column  ;
+    justify-content: center ;
+    align-content: center   ;
+}
+.infoPanel{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -40,8 +54,10 @@
     font-weight: 2000;
 }
 .textHolder p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
-    color: var(--light-blue);
+    font-weight: 500;
+    color: var(--dark-blue);
 
 }
 

@@ -1,9 +1,9 @@
 import React from "react";
-
+import style from "./style.module.css"
 function InputDescriptionHolder({ name, mainValue, descriptionValue, onMainChange, onDescriptionChange }) {
     return (
-        <div>
-            <div>Input:</div>
+        <div className={style.inputHolder}>
+            <div >Input:</div>
             <input
                 name={`${name}-main`}
                 value={mainValue}

@@ -65,12 +65,14 @@ export default function ModelForm() {
         setInputHolders(inputHolders.map(holder =>
             holder.id === id ? { ...holder, mainValue: newValue } : holder
         ));
+        handleInputDescSubmit();
     };
 
     const handleDescriptionChange = (id, newValue) => {
         setInputHolders(inputHolders.map(holder =>
             holder.id === id ? { ...holder, descriptionValue: newValue } : holder
         ));
+        handleInputDescSubmit();
     };
 
     const handleInputDescSubmit = () => {
@@ -101,6 +103,8 @@ export default function ModelForm() {
                         <textarea className={style.description} name="description" onChange={handleInputChange} />
                     </div>
 
+                    <h2> Inputs and descriptions</h2>
+                    
                     <div className={style.inputDescriptionHolder}>
                         {inputHolders.map(holder => (
                             <InputDescriptionHolder
@@ -113,8 +117,7 @@ export default function ModelForm() {
                             />
                         ))}
 
-                        <button className={style.NormalButton} onClick={handleAddInput}>Add new input</button>
-                        <button className={style.NormalButton} onClick={handleInputDescSubmit}>Confirm inputs</button>
+                        <button className={style.AddButton} onClick={handleAddInput}>+add</button>
                     </div>
                     
                     <div className={style.inputModelHolder}>

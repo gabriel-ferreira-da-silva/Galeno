@@ -58,21 +58,21 @@ function ModelPanel({ setLoading, modelname, file, setFile,setColumns,img,setImg
                     <div className={style.container}>
                         <Fade bottom duration={1000}>
                         <div className={style.descriptors}>
-                            <div clasName={style.labelHolder}>
-                                <div className={style.label}>{"name: "}</div>
-                                <div>{model.name}</div>
+                            <div className={style.labelholder}>
+                                <div className={style.label}>{"Name: "}</div>
+                                <div className={style.labeltext}>{model.name}</div>
                             </div>
-                            <div clasName={style.labelHolder}>
-                                <div className={style.label}>{"type: "}</div>
-                                <div>{model.type}</div>
+                            <div className={style.labelholder}>
+                                <div className={style.label}>{"Type: "}</div>
+                                <div className={style.labeltext}>{model.type}</div>
                             </div>
-                            <div clasName={style.labelHolder}>
-                                <div className={style.label}>{"disease: "}</div>
-                                <div>{model.disease}</div>
+                            <div className={style.labelholder}>
+                                <div className={style.label}>{"Disease: "}</div>
+                                <div className={style.labeltext}>{model.disease}</div>
                             </div>
-                            <div clasName={style.labelHolder}>
-                                <div className={style.label}>{"description: "}</div>
-                                <div>{model.description}</div>
+                            <div clasName={style.labelholder}>
+                                <div className={style.label}>{"Description: "}</div>
+                                <div className={style.labeltext}>{model.description}</div>
                             </div>
 
                         </div>

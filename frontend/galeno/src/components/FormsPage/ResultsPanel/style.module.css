@@ -16,22 +16,50 @@
 
 }
 
+.result{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.restitle{
+    font-weight: 500;
+    color:var(--dark-blue);
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+}
+
+.restext{
+    margin-left: 10px;
+    color:black;
+    margin-left:5px;
+    font-size: 20px;
+}
 .text{
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 600;
     margin-top: 5px;
-    margin-bottom: 20px;
-    color:var(--light-blue)
+    margin-bottom: 25px;
+    color:var(--light-blue);
+    
 }
 
-.text label{
+.text div{
     display: flex;
     flex-direction: column;
     font-size: 15px;
     margin-left: 20px;
     margin-top: 10px;
     color: black;
+
+    color:black;
+    font-size: 17px;
+    font-weight: 500;
+
 }
 
 .container{

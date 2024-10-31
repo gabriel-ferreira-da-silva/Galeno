@@ -1,5 +1,5 @@
 @import url(../commom/style.module.css);
-@import url(../commom/buttons/Buttons.module.css);
+
 .NormalButton{
 
     justify-self: center;
@@ -14,9 +14,38 @@
     font-size: large;
 }
 
+.AddButton{
+    justify-self: center;
+    align-items: center;
+    background-color: var(--light-blue);
+    color:white;
+    padding: 10px;
+    max-width:fit-content;
+    margin-top: 20px;
+    border: solid white 2px;
+    border-radius: 100px;
+    font-size: large;
+    align-self: center;
+
+}
+
+.inputDescriptionHolder{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+
+
 h1{
     color: var(--light-blue);
     margin-left: 20px;
+}
+
+h2{
+    color: var(--light-blue);
+    margin-left: 10px;
 }
 
 .NormalButton:active{
@@ -25,6 +54,7 @@ h1{
 
 .container{
     width: 1200px;
+
     margin: 30px;
     padding: 20px;
     border-radius: 5px;
@@ -42,16 +72,29 @@ h1{
     display: flex;
     flex-direction: column;
     margin:10px ;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .textHolder div{
+    margin-top: 10px;
     margin-right: 10px;
-    color:black;
+    color: var(--dark-blue);
     font-size: 20px;
     justify-content: left;
     align-content: center;
-    font-weight: 400;
+    font-weight: 600;
+}
+
+.textHolder textarea{
+    margin-top: 10px;
+    margin-right: 10px;
+    justify-content: left;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    border: 1px solid var(--dark-blue);
+    width: 600px;
+    height: 200px;
 }
 
 .inputModelHolder{
@@ -71,14 +114,21 @@ h1{
     font-weight: 400;
 }
 
-
 .inputHolder div{
     
-    color:black;
+    color:var(--dark-blue);
     font-size: 20px;
     justify-content: left;
     align-content: center;
-    font-weight: 400;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.inputHolder input{
+    
+    border-radius: 5px;
+    height: 30px;
+    border: 1px solid var(--dark-blue);
 }
 
 .description { 

@@ -12,7 +12,9 @@ function FormPage() {
 
   return (
     <div>
+      <h1>Select Disease and Model to predict</h1>
       <div className={style.container }>
+
         <SelectsPanel
             selectDisease={selectDisease}
             selectModel={selectModel}

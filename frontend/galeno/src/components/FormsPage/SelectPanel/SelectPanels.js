@@ -7,7 +7,6 @@ function SelectsPanel({selectDisease, selectModel,disease}) {
   return (
     <div>
       <Fade bottom duration={1000}>
-        <p>Select disease and model to predict</p>
         <div className={style.panel}>
             <DiseaseSelect
               onDiseaseSelect={selectDisease}
