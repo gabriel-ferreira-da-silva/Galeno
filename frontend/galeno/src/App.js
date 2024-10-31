@@ -14,9 +14,9 @@ import Favicon from "react-favicon";
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [icon,setIcon] = useState("https://github.com/gabriel-ferreira-da-silva/Galeno/raw/refs/heads/sidemenu/frontend/galeno/public/logo.ico")
+  const [icon,setIcon] = useState("https://github.com/gabriel-ferreira-da-silva/Galeno/blob/main/frontend/galeno/public/gamm.icon?raw=true")
   useEffect(()=>{
-    setIcon("https://github.com/gabriel-ferreira-da-silva/Galeno/raw/refs/heads/sidemenu/frontend/galeno/public/gamm.ico");
+    setIcon("https://github.com/gabriel-ferreira-da-silva/Galeno/blob/main/frontend/galeno/public/gamm.icon?raw=true");
   },[])
   return (
     <div>
